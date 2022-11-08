@@ -1,0 +1,38 @@
+{
+  "name": "battleships",
+  "version": "1.0.0",
+  "description": "A Battleships game built with vanilla JavaScript test-driven-development using [Jest](https://jestjs.io/), packaged with [Webpack](https://webpack.js.org/).",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack",
+    "dev": "webpack serve",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcrachael/battleships.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcrachael/battleships/issues"
+  },
+  "homepage": "https://github.com/jcrachael/battleships#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.3.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "gh-pages": "^4.0.0"
+  }
+}
