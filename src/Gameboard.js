@@ -13,6 +13,7 @@ export default function Gameboard() {
     return {
         board: board,
         shipsSunk: 0,
+
         // e.g. Gameboard.placeShip('battleship', [4,3], 'horizontal') places a Ship of length
         // 4 at Gameboard coordinate (4,3)
         place(shipType, coords, orientation) {
@@ -21,14 +22,12 @@ export default function Gameboard() {
             let yCoord;
             let shipCoords = [];
             
-            if (shipType == 'carrier') {
-                ship = new Ship(5);
-            } else if (shipType == 'battleship') {
-                ship = new Ship(4);
-            } else if (shipType == 'destroyer' || shipType == 'submarine') {
-                ship = new Ship(3);
-            } else if (shipType == 'patrolboat') {
-                ship = new Ship(2);
+            if (shipType == 'carrier' ||
+            shipType == 'battleship' ||
+            shipType == 'destroyer' ||
+            shipType == 'submarine' ||
+            shipType == 'patrol') {
+                ship = new Ship(shipType);
             } else {
                 return 'Error: ship type is not defined'
             }
@@ -85,31 +84,40 @@ export default function Gameboard() {
             return board;
         },
 
+
         receiveAttack(coords) {
             // Takes a pair of coords and checks if a ship is present
             let result;
+            let resultType;
             let xCoord = coords[1];
             let yCoord = coords[0];
             let square = board[yCoord][xCoord];
             if (typeof square == 'string') {
                 result = "You've already fired here!";
+                resultType = 'bounce';
             } else if (typeof square == 'object') {
-                result = 'Hit!';
+                result = 'Direct hit!';
+                resultType = 'hit';
                 let ship = board[yCoord][xCoord];
                 board[yCoord][xCoord] = 'hit';
                 ship.hit();
                 ship.isSunk();
-                let type =  ship.shipType();
                 if (ship.sunk == true) {
-                    result += ' You sunk my ' + type;
+                    result += ' You sunk my ' + ship.type;
+                    resultType = 'sink';
                     this.shipsSunk += 1;
                 };
             } else if (typeof square == 'number') {
                 result = 'Miss!';
+                resultType = 'miss';
                 board[yCoord][xCoord] = 'miss';
             };
-            return {board, result};
-
+            return {board, result, resultType};
         },
+
+        shipsLeft() {
+            return (5 - this.shipsSunk);
+        }
+
     };
 };

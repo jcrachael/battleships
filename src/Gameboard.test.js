@@ -71,7 +71,7 @@ it('board.receiveAttack records a Hit when square with boat is hit', () => {
     const coords = [0,2];
     const orientation = 'horizontal';
     newBoard.place(shipType, coords, orientation);
-    expect(newBoard.receiveAttack(coords).result).toBe('Hit!');
+    expect(newBoard.receiveAttack(coords).result).toBe('Direct hit!');
 });
 
 it('board.receiveAttack records a Miss when no ship is it', () => {
@@ -103,7 +103,7 @@ it('board.receiveAttack tells you when a ship has sunk', () => {
     newBoard.receiveAttack([0,3]);
     newBoard.receiveAttack([0,4]);
     newBoard.receiveAttack([0,5]);
-    expect(newBoard.receiveAttack([0,6]).result).toBe('Hit! You sunk my carrier');
+    expect(newBoard.receiveAttack([0,6]).result).toBe('Direct hit! You sunk my carrier');
 });
 
 it('board tracks how many of its ships have been sunk', () => {
@@ -119,3 +119,4 @@ it('board tracks how many of its ships have been sunk', () => {
     newBoard.receiveAttack([0,6]);
     expect(newBoard.shipsSunk).toEqual(1);
 });
+

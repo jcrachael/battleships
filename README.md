@@ -7,7 +7,7 @@ Projcet sourced from [The Odin Project JavaScript course](https://www.theodinpro
 
 ## About
 
-The Gameboard is a 10x10 2-dimensional array as follows:
+The board is a 10x10 2-dimensional array as follows:
 
 ```javascript
 Gameboard.board = 
@@ -27,11 +27,8 @@ Each array value represents a cell on the board, for example, the top-left cell 
 
 E.g. to put a `Submarine` vertically at `board[3][4]`, the ship's coordinates will be
 
-```javascript
-board[3][4]
-board[4][4]
-board[5][4]
-```
----
+
+
+
 
 Last modified: 8 November 2022

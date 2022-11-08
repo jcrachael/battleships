@@ -1,12 +1,20 @@
-// Carrier = new Ship(5)
-// Battleship = new Ship(4);
-// Destroyer = new Ship(3);
-// Submarine = new Ship(3);
-// Patrol Boat = new Ship(2);
+// e.g. Carrier = new Ship('carrier')
 
-export default function Ship(length) {
+
+export default function Ship(type) {
+    let length;
+    if (type == 'carrier') {
+        length = 5;
+    } else if (type == 'battleship') {
+        length = 4;
+    } else if (type == 'submarine' || type == 'destroyer') {
+        length = 3;
+    } else if (type == 'patrol') {
+        length = 2;
+    } 
 
     return {
+        type: type,
         length: length,
         timesHit: 0,
         sunk: false,
@@ -20,21 +28,6 @@ export default function Ship(length) {
                 return this.sunk = false;
             }
         },
-        shipType() {
-            if (this.length === 5) {
-                return 'carrier'
-            } else if (this.length === 4) {
-                return 'battleship' 
-            } else if (this.length === 3) {
-                let count = Math.floor(Math.random() * 2);
-                if (count === 0) {
-                    return 'submarine'
-                } else if (count === 1) {
-                    return 'destroyer'
-                } 
-            } else if (this.length == 2) {
-                return 'patrolBoat'
-            }
-        }
+
     }
 }
