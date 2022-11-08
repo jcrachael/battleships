@@ -1,5 +1,3 @@
-
-
 import Gameboard from "./Gameboard";
 
 it('A new Gameboard returns an object', () => {
@@ -120,3 +118,39 @@ it('board tracks how many of its ships have been sunk', () => {
     expect(newBoard.shipsSunk).toEqual(1);
 });
 
+it('board.shipsLeft() returns 4 when 1 ship has been sunk', () => {
+    const newBoard = new Gameboard();
+    const shipType = 'carrier';
+    const coords = [0,2];
+    const orientation = 'horizontal';
+    newBoard.place(shipType, coords, orientation);
+    newBoard.receiveAttack([0,2]);
+    newBoard.receiveAttack([0,3]);
+    newBoard.receiveAttack([0,4]);
+    newBoard.receiveAttack([0,5]);
+    newBoard.receiveAttack([0,6]);
+    expect(newBoard.shipsLeft()).toEqual(4);
+})
+
+it('throws error when coords not from 0-9', () => {
+    const newBoard = new Gameboard();
+    const shipType = 'carrier';
+    const orientation = 'horizontal';
+    const coords1 = [10,0];
+    const coords2 = [3,-1];
+    const coords3 = [-1, 11];
+    expect(newBoard.place(shipType, coords1, orientation)).toBe('Error: coords must be from 0-9');
+    expect(newBoard.place(shipType, coords2, orientation)).toBe('Error: coords must be from 0-9');
+    expect(newBoard.place(shipType, coords3, orientation)).toBe('Error: coords must be from 0-9');
+})
+
+it('throws error if trying to place ship on coord with a ship already in place', () => {
+    const newBoard = new Gameboard();
+    const shipType = 'carrier';
+    const coords = [0,2];
+    const orientation = 'horizontal';
+    newBoard.place(shipType, coords, orientation);
+    let errorCoords = [0,3];
+    expect(newBoard.place(shipType, errorCoords, orientation)).toBe('Error: square is taken');
+
+})

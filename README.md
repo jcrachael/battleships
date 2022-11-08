@@ -25,10 +25,9 @@ Gameboard.board =
 ```
 Each array value represents a cell on the board, for example, the top-left cell is at `board[0][0]`, and the bottom-right cell is at `board[9][9]`.
 
-E.g. to put a `Submarine` vertically at `board[3][4]`, the ship's coordinates will be
 
 
 
-
+---
 
 Last modified: 8 November 2022

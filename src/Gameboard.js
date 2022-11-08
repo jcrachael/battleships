@@ -22,6 +22,7 @@ export default function Gameboard() {
             let yCoord;
             let shipCoords = [];
             
+            // Make the ship, or return an error if shipType not defined
             if (shipType == 'carrier' ||
             shipType == 'battleship' ||
             shipType == 'destroyer' ||
@@ -32,12 +33,20 @@ export default function Gameboard() {
                 return 'Error: ship type is not defined'
             }
 
+            // If coords are not defined, return error
             if (coords != undefined) {
                 xCoord = coords[1];
                 yCoord = coords[0];
             } else {
                 return 'Error: coords are not defined'
             }
+
+            // If coords not between 0-9, return error
+            if (xCoord < 0 || xCoord > 9 || yCoord < 0 || yCoord > 9) {
+                return 'Error: coords must be from 0-9'
+            }
+
+            // TODO: check if ship will fit given length, coords and orientation
 
             // Get all the subsequent required coords
             // if the ship is placed horizontally, increase the x-axis
@@ -67,8 +76,8 @@ export default function Gameboard() {
                 let currentY = currentCoord[0];
                 // Go to the square on the board that matches this coord
                 currentSquare = board[currentY][currentX];
-                // Check if this square contains a string
-                if (typeof currentSquare == 'string') {
+                // Check if this square contains a ship already
+                if (typeof currentSquare == 'object') {
                     return 'Error: square is taken'
                 }
             }
