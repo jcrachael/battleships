@@ -15,6 +15,25 @@ function Display() {
         main.innerHTML = '';
     }
 
+    // Show error 
+    function error(message) {
+        const container = document.getElementById('container');
+        const alert = document.createElement('div');
+        const close = document.createElement('span');
+        alert.classList.add('alert');
+        alert.classList.add('alert-error');
+        close.classList.add('close-alert');
+        close.innerText = '✖';
+        
+        alert.innerText = message;
+        close.addEventListener('click', function() {
+            alert.classList.add('hidden');
+            setTimeout(function(){ alert.style.display = "none"; }, 600);
+        });
+        alert.appendChild(close);
+        container.appendChild(alert);
+    }
+
     // set username
     function setUsername(name) {
         return username = name;
@@ -423,8 +442,7 @@ function Display() {
     // Get user's coords for placing their ships 
     function getUserShipsForm() {
  
-        // DEBUG console logs
-        console.log('Play button clicked')
+
 
         const carrierinput = document.getElementById('carrier');
         const carrierRadioHor = document.getElementById('carrier-horizontal');
@@ -509,13 +527,21 @@ function Display() {
 
         let orients = getUserOrients();
         let coords = getUserCoords();
+        
+
+        if (coords === undefined) {
+            let message = 'Error: not all coordinates provided';
+            error(message);
+            return message;
+        }
 
         for (const key in coords) {
             let value = coords[key];
       
-            if (value == undefined) {
-                console.log('Error: not all coordinates provided');
-                return 
+            if (value === undefined) {
+                let message = 'Error: not all coordinates provided';
+                error(message);
+                return message;
             }
         }
 
@@ -523,9 +549,10 @@ function Display() {
         for (const key in orients) {
             let value = orients[key];
  
-            if (value == undefined) {
-                console.log('Error: not all orientations provided');
-                return
+            if (value === undefined) {
+                let message = 'Error: not all orientations provided';
+                error(message);
+                return message;
             }
         }
 
@@ -544,7 +571,9 @@ function Display() {
             let value = obj[key];
 
             if (value == '') {
-                return 'Error: not all coordinates provided'
+                let message = 'Error: not all coordinates provided';
+                console.log(message);
+                return;
             }
         }
      
@@ -568,7 +597,9 @@ function Display() {
             let value = obj[key];
 
             if (value == '') {
-                return 'Error: not all orientations provided'
+                let message = 'Error: not all orientations provided';
+                console.log(message);
+                return message;
             }
         }
 

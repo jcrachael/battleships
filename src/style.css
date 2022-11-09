@@ -24,6 +24,47 @@ header > h1 {
     padding-bottom: 12pt;
 }
 
+/* ALERT */
+
+.alert {
+    font-size: 0.9rem;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem;
+    top: 60px;
+    left: calc(50% - 270px);
+    z-index: 1;
+    width: 600px;
+    padding: 5px 20px;
+    border: 1px #a1261e solid;
+    box-sizing: border-box;
+    background-color: #f56a60;
+    color: white;
+    margin: 15px auto 0px auto;
+    opacity: 0.9;
+    transition: opacity 0.6s;
+}
+
+.close-alert {
+    margin-left: 15px;
+    color: white;
+    float: right;
+
+    line-height: 1.7rem;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 300;
+}
+
+.close-alert:hover {
+    color: black;
+}
+
+.hidden {
+    opacity: 0;
+}
 
 /* MAIN */
 
@@ -46,6 +87,17 @@ form {
 
 legend {
     padding: 0px 0px 40px 0px;
+}
+
+#get-coords-form > .form-control > * {
+
+    justify-content: space-evenly;
+}
+
+#get-coords-form > .form-control > input[type="text"] {
+    width: 40px;
+    text-align: center;
+    margin-left: -10px;
 }
 
 .form-control {
@@ -71,6 +123,29 @@ input[type="text"] {
     
 }
 
+input[type="radio"] {
+    cursor: pointer;
+}
+
+.radio-container {
+
+    display: grid;
+    grid-template-columns: 1rem auto 1rem auto;
+    gap: 0.5rem;
+}
+
+.radio-container > * {
+    margin: 0;
+    padding: 0;
+   
+}
+
+.radio-container > label {
+    width: 80px;
+    text-align: left;
+}
+
+
 input[type="submit"] {
     margin-left: 20px;
     background-color: #7CB342;
@@ -90,16 +165,7 @@ input[type="submit"]:hover, input[type="submit"]:active {
     background-color: #558B2F;
 }
 
-#get-coords-form > .form-control > * {
 
-    justify-content: space-evenly;
-}
-
-#get-coords-form > .form-control > input[type="text"] {
-    width: 40px;
-    text-align: center;
-    margin-left: -10px;
-}
 
 #submit-coords {
     margin-top: 20px;
