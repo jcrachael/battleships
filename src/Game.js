@@ -1,34 +1,13 @@
 import { Player, AiPlayer } from "./Player";
 import Gameboard from "./Gameboard";
 
-function Game() {
-    
-    // TODO: Get the user's input for name
-    let name = 'Player one';
-
+function Game(name) {
     // Initialise a new Player for the user
     let humanPlayer = new Player(name);
 
     // Initialise the boards
-    let AiBoard = new Gameboard();
-    let humanBoard = new Gameboard();
-
-    // Populate each board with ships
-    // TODO: make AiBoard populate randomly and humanBoard by user input
-    
-    // humanBoard
-    humanBoard.place('carrier', [0,0], 'vertical');
-    humanBoard.place('battleship', [1,2], 'horizontal');
-    humanBoard.place('destroyer', [8,7], 'horizontal');
-    humanBoard.place('submarine', [9,5], 'horizontal');
-    humanBoard.place('patrol', [1,8], 'vertical');
-
-    // AiBoard
-    AiBoard.place('carrier', [8,0], 'horizontal');
-    AiBoard.place('battleship', [3,6], 'vertical');
-    AiBoard.place('destroyer', [6,1], 'horizontal');
-    AiBoard.place('submarine', [2,2], 'vertical');
-    AiBoard.place('patrol', [5,8], 'horizontal');
+    let AiBoard = new Gameboard(AiPlayer);
+    let humanBoard = new Gameboard(humanPlayer);
 
     // Initalise gameOver to be false and winner to be null
     let gameOver = false;
@@ -38,19 +17,55 @@ function Game() {
     let activePlayer = humanPlayer;
     let receivingBoard = AiBoard;
 
-    // TODO: change to While gameOver is false
-    while (!gameOver) {
-        // Play rounds of the game
+    // Populate each board with ships
+    // TODO: make AiBoard populate randomly and humanBoard by user input
+    // humanBoard
+    function populateHumanBoard(board, coords, orients) {
+        board.place('carrier', coords['userCarrier'], orients['userCarrierOrient']);
+        board.place('battleship', coords['userBattleship'], orients['userBattleshipOrient']);
+        board.place('destroyer', coords['userDestroyer'], orients['userDestroyerOrient']);
+        board.place('submarine', coords['userSubmarine'], orients['userSubmarineOrient']);
+        board.place('patrol', coords['userPatrolBoat'], orients['userPatrolBoatOrient']);
+    }
 
+    // AiBoard
+    function populateAiBoard(board) {
+        board.place('carrier', [8,0], 'horizontal');
+        board.place('battleship', [3,6], 'vertical');
+        board.place('destroyer', [6,1], 'horizontal');
+        board.place('submarine', [2,2], 'vertical');
+        board.place('patrol', [5,8], 'horizontal');
+    }
+
+    // Play a round
+    function playRound() {
         // Initialise an input variable
         let input;
-
+    
         if (activePlayer == humanPlayer) {
+            console.log('Human\'s turn');
             // Get user's coord to attack (from the click event)
-            input = AiPlayer.randomTurn();
+            let coords = humanPlayer.randomCoords();
+            console.log('Human\'s first coords: ' + coords)
+            let usedCoords = humanPlayer.usedCoords;
+            let turn = humanPlayer.randomTurn(usedCoords, coords);
+            if (turn == undefined) {
+                console.log('Turn is undefined') 
+            }
+          
+            input = turn.coords;
+            console.log('Human\'s input: ' + input);
+            
         } else if (activePlayer == AiPlayer) {
+            console.log('Computer\'s turn')
             // Get random coords
-            input = AiPlayer.randomTurn();
+            let coords = AiPlayer.randomCoords();
+            console.log('Computer\'s first coords: ' + coords)
+            let usedCoords = AiPlayer.usedCoords;
+            let turn = AiPlayer.randomTurn(usedCoords, coords);
+       
+            input = turn.coords;
+            console.log('Computer\'s input: ' + input);
         }
         
         // Attack the receiving board
@@ -63,6 +78,7 @@ function Game() {
                 // If the receiving board has no ships left, the active player wins
                 winner = activePlayer;
                 gameOver = true;
+                return gameOver;
             }
         }
         // switch the players and receivingBoard for the next turn
@@ -73,15 +89,49 @@ function Game() {
             activePlayer = humanPlayer;
             receivingBoard = AiBoard;
         }
-    }
-
-    // Once gameOver is true
-    // If winner is null, declare a draw
-    if (winner == null) {
-        winner = 'Draw'
+        return gameOver;
     };
 
-    return { winner }
+
+    // Play the game
+    function playGame() {
+        while (!gameOver) {
+            // Play rounds of the game
+            playRound();
+        }
+
+        // Once gameOver is true
+        // If winner is null, declare a draw
+        if (winner == null) {
+            winner = 'Draw'
+        };
+        // DEBUG CONSOLE LOGS
+        console.log('The winner is ' + winner.name)
+        return winner
+
+    }
+    
+    return {
+        humanPlayer: humanPlayer,
+        AiPlayer: AiPlayer,
+        gameOver: gameOver,
+        winner: winner,
+        humanBoard: humanBoard,
+        AiBoard: AiBoard,
+        activePlayer: activePlayer,
+        receivingBoard: receivingBoard,
+        populateAiBoard: populateAiBoard,
+        populateHumanBoard: populateHumanBoard,
+        playGame: playGame,
+    }
 }
+
+
+
+
+
+
+
+
 
 export { Game }

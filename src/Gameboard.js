@@ -1,6 +1,6 @@
 import Ship from "./Ship"
 
-export default function Gameboard() {
+export default function Gameboard(owner) {
     
     let board = [];
     for (let i = 0; i < 10; i++) {
@@ -13,10 +13,12 @@ export default function Gameboard() {
     return {
         board: board,
         shipsSunk: 0,
+        owner: owner,
 
         // e.g. Gameboard.placeShip('battleship', [4,3], 'horizontal') places a Ship of length
         // 4 at Gameboard coordinate (4,3)
         place(shipType, coords, orientation) {
+     
             let ship;
             let xCoord;
             let yCoord;
@@ -35,8 +37,8 @@ export default function Gameboard() {
 
             // If coords are not defined, return error
             if (coords != undefined) {
-                xCoord = coords[1];
-                yCoord = coords[0];
+                xCoord = parseInt(coords[1]);
+                yCoord = parseInt(coords[0]);
             } else {
                 return 'Error: coords are not defined'
             }
@@ -88,6 +90,12 @@ export default function Gameboard() {
                 let currentY = currentCoord[0];
                 // Go to the square on the board that matches this coord
                 board[currentY][currentX] = ship;
+                let id = owner.name + '-cell-' + currentY + '-' + currentX;
+                
+                let cell = document.querySelector(`[data-coord="${id}"]`);
+                
+                cell.classList.remove('open');
+                cell.classList.add('cell-ship');
             }
 
             return board;

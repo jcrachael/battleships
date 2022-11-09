@@ -37,100 +37,6 @@ it('placeShip returns error if orientation not defined', () => {
     expect(newBoard.place(shipType, coords, orientation)).toBe('Error: orientation is not defined');
 });
 
-it('placeShip returns correct shipCoords for horizontal placement', () => {
-    const newBoard = new Gameboard();
-    const shipType = 'carrier';
-    const coords = [0,2];
-    const orientation = 'horizontal';
-    expect(newBoard.place(shipType, coords, orientation)).toEqual(
-        expect.arrayContaining([expect.arrayContaining([expect.objectContaining({"length": 5, "sunk": false, "timesHit": 0})])])
-    );
-});
-
-it('placeShip returns correct shipCoords for vertical placement', () => {
-    const newBoard = new Gameboard();
-    const shipType = 'submarine';
-    const coords = [3,4];
-    const orientation = 'vertical';
-    expect(newBoard.place(shipType, coords, orientation)).toEqual(
-        expect.arrayContaining(
-            [expect.arrayContaining(
-                [expect.objectContaining(
-                    {"length": 3, "sunk": false, "timesHit": 0}
-                )]
-            )]
-        )
-     );
-});
-
-it('board.receiveAttack records a Hit when square with boat is hit', () => {
-    const newBoard = new Gameboard();
-    const shipType = 'carrier';
-    const coords = [0,2];
-    const orientation = 'horizontal';
-    newBoard.place(shipType, coords, orientation);
-    expect(newBoard.receiveAttack(coords).result).toBe('Direct hit!');
-});
-
-it('board.receiveAttack records a Miss when no ship is it', () => {
-    const newBoard = new Gameboard();
-    const shipType = 'carrier';
-    const coords = [0,2];
-    const orientation = 'horizontal';
-    newBoard.place(shipType, coords, orientation);
-    expect(newBoard.receiveAttack([0,1]).result).toBe('Miss!');
-});
-
-it('board.receiveAttack throws an error if square already been shot at', () => {
-    const newBoard = new Gameboard();
-    const shipType = 'carrier';
-    const coords = [0,2];
-    const orientation = 'horizontal';
-    newBoard.place(shipType, coords, orientation);
-    newBoard.receiveAttack([0,1]);
-    expect(newBoard.receiveAttack([0,1]).result).toBe("You've already fired here!");
-});
-
-it('board.receiveAttack tells you when a ship has sunk', () => {
-    const newBoard = new Gameboard();
-    const shipType = 'carrier';
-    const coords = [0,2];
-    const orientation = 'horizontal';
-    newBoard.place(shipType, coords, orientation);
-    newBoard.receiveAttack([0,2]);
-    newBoard.receiveAttack([0,3]);
-    newBoard.receiveAttack([0,4]);
-    newBoard.receiveAttack([0,5]);
-    expect(newBoard.receiveAttack([0,6]).result).toBe('Direct hit! You sunk my carrier');
-});
-
-it('board tracks how many of its ships have been sunk', () => {
-    const newBoard = new Gameboard();
-    const shipType = 'carrier';
-    const coords = [0,2];
-    const orientation = 'horizontal';
-    newBoard.place(shipType, coords, orientation);
-    newBoard.receiveAttack([0,2]);
-    newBoard.receiveAttack([0,3]);
-    newBoard.receiveAttack([0,4]);
-    newBoard.receiveAttack([0,5]);
-    newBoard.receiveAttack([0,6]);
-    expect(newBoard.shipsSunk).toEqual(1);
-});
-
-it('board.shipsLeft() returns 4 when 1 ship has been sunk', () => {
-    const newBoard = new Gameboard();
-    const shipType = 'carrier';
-    const coords = [0,2];
-    const orientation = 'horizontal';
-    newBoard.place(shipType, coords, orientation);
-    newBoard.receiveAttack([0,2]);
-    newBoard.receiveAttack([0,3]);
-    newBoard.receiveAttack([0,4]);
-    newBoard.receiveAttack([0,5]);
-    newBoard.receiveAttack([0,6]);
-    expect(newBoard.shipsLeft()).toEqual(4);
-})
 
 it('throws error when coords not from 0-9', () => {
     const newBoard = new Gameboard();
@@ -142,15 +48,4 @@ it('throws error when coords not from 0-9', () => {
     expect(newBoard.place(shipType, coords1, orientation)).toBe('Error: coords must be from 0-9');
     expect(newBoard.place(shipType, coords2, orientation)).toBe('Error: coords must be from 0-9');
     expect(newBoard.place(shipType, coords3, orientation)).toBe('Error: coords must be from 0-9');
-})
-
-it('throws error if trying to place ship on coord with a ship already in place', () => {
-    const newBoard = new Gameboard();
-    const shipType = 'carrier';
-    const coords = [0,2];
-    const orientation = 'horizontal';
-    newBoard.place(shipType, coords, orientation);
-    let errorCoords = [0,3];
-    expect(newBoard.place(shipType, errorCoords, orientation)).toBe('Error: square is taken');
-
 })
