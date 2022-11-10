@@ -1,8 +1,6 @@
 import { Game } from "./Game";
 
-
 function Display() {
-
     // initialise variables
     const main = document.getElementById('main');
     let currentInput = [];
@@ -11,13 +9,12 @@ function Display() {
     let username;
     let game;
 
-    // Remove all children from main
+    // Removes all children from main
     function clearMain() {
         main.innerHTML = '';
     }
 
-
-    // Show form validation error 
+    // Shows form validation error 
     function error(message) {
         const container = document.getElementById('container');
         const alert = document.createElement('div');
@@ -36,16 +33,17 @@ function Display() {
         container.appendChild(alert);
     }
 
-    // set username
+    // sets username
     function setUsername(name) {
         return username = name;
     }
     
+    // gets username
     function getUsername() {
         return username;
     }
 
-    // Print a game board
+    // Prints a game board
     function printBoard(board) {
         // make outer container
         const outerdiv = document.createElement('div');
@@ -90,12 +88,13 @@ function Display() {
         
     };
 
+
     function getInput() {
         return currentInput
     };
 
-    // Get user's coords for placing their ships 
-    function getUserShips() {
+    // Gets user's coords for placing their ships 
+    function getUserShips(aiCoords) {
         const carrierinput = document.getElementById('carrier');
         const carrierRadioHor = document.getElementById('carrier-horizontal');
         const carrierRadioVer = document.getElementById('carrier-vertical');
@@ -128,7 +127,6 @@ function Display() {
         }
   
         setUserShips(thesecoords);
-        
 
         // get orientations
         let carrierOrient;
@@ -208,11 +206,12 @@ function Display() {
         }
 
         main.innerHTML = '';
-        startGame(username);
+
+        startGame(username, aiCoords);
         
     }
 
-    // set the user ship coords
+    // sets the user ship coords
     function setUserShips(obj) {
          
         for (const key in obj) {
@@ -264,7 +263,7 @@ function Display() {
         return orients;
     }
 
-    function startGame(name) {
+    function startGame(name, aiCoords) {
         game = new Game(name);
 
         // Print the boards
@@ -276,7 +275,28 @@ function Display() {
         let orients = getUserOrients();
 
         game.populateHumanBoard(game.humanBoard, coords, orients);
-        // game.populateAiBoard(game.AiBoard);
+
+        let aiData = aiCoords;
+        console.log(aiData);
+
+        let aiShipCoords = {
+            carrier: aiData['carrier']['coord'],
+            battleship: aiData['battleship']['coord'],
+            destroyer: aiData['destroyer']['coord'],
+            submarine: aiData['submarine']['coord'],
+            patrol: aiData['patrol']['coord']
+        }
+
+        let aiOrients = {
+            carrierOrient: aiData['carrier']['ori'],
+            battleshipOrient: aiData['battleship']['ori'],
+            destroyerOrient: aiData['destroyer']['ori'],
+            submarineOrient: aiData['submarine']['ori'],
+            patrolOrient: aiData['patrol']['ori']
+        }
+
+
+        game.populateAiBoard(game.AiBoard, aiShipCoords, aiOrients);
 
 
         // Add event listeners for AI's board's cells

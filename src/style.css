@@ -193,12 +193,37 @@ input[type="submit"]:hover, input[type="submit"]:active {
     
 }
 
+.error.green {
+    background-color: #7CB342;
+    cursor: pointer;
+}
+
+.error.green:hover {
+    background-color: #558B2F;
+    transition: 0.2s;
+}
+
+.error.green.inactive {
+    cursor: default;
+}
+
+.error.green.inactive:hover {
+    background-color: #7CB342;
+}
+
+.disabled {
+    font-style: italic;
+    opacity: 0.7;
+}
+
 .error.active {
     font-size: 0.7rem;
     margin-top: -20px;
     width: 250px;
     padding: 0.3rem 0.5rem 0.2rem 0.5rem;
+    
 }
+
 
 .invisible {
     display: none !important;

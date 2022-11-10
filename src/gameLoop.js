@@ -4,21 +4,22 @@ import { getCoordsForm } from './getCoordsForm';
 
 function gameLoop() {
 
-    // Initialise displayController, the getNameForm and getCoordsForm objects
+    // Initialise displayController, getNameForm and getCoordsForm objects
     const displayController = new Display();
     const getName = new getNameForm();
     const coordsForm = new getCoordsForm();
+
     // Initialise an empty variable to store the user's name
     let username;
 
-    // Start the game by displaying the get name screen
+    // Starts the game by displaying the get name screen
     function init() {
-        // Display the get name form
+        // Display the get name form and set its event listener
         getName.display();
         setNameFormListener();
     };
 
-    // Helper functions to set form submit button event listeners
+    // Private helper function for init() that sets event listener on the get name form
     function setNameFormListener() {
         // get submit name btn
         const submitName = document.getElementById('submit-name');
@@ -40,20 +41,33 @@ function gameLoop() {
             // set the username
             displayController.setUsername(username);
             // display the coords form
-            coordsForm.display();
-            setCoordFormListener();
+            main.appendChild(coordsForm.form);
+            // set event listener for coords form submit button
+            setCoordFormListeners();
         });
     }
 
-    function setCoordFormListener() {
+    // Private helper function for setNameFormListener() that sets event listeners on the coords form
+    function setCoordFormListeners() {
+
+        // Set listeners to validate carrier input
+        coordsForm.validateCarrier();
+        coordsForm.validateBattleship();
+        coordsForm.validateDestroyer();
+        coordsForm.validateSubmarine();
+        coordsForm.validatePatrolBoat();
+
         // get coords submit
         const submitCoords = document.getElementById('submit-coords');
         submitCoords.addEventListener('click', function(e) {
             e.preventDefault();
-            displayController.getUserShips();
+            let aiCoords = coordsForm.getAiCoords();
+            displayController.getUserShips(aiCoords);
+            
         });
     }
-    
+
+
     return {
         init: init,
     }
