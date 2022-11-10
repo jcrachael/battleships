@@ -29,12 +29,12 @@ function Game(name) {
     }
 
     // AiBoard
-    function populateAiBoard(board) {
-        board.place('carrier', [8,0], 'horizontal');
-        board.place('battleship', [3,6], 'vertical');
-        board.place('destroyer', [6,1], 'horizontal');
-        board.place('submarine', [2,2], 'vertical');
-        board.place('patrol', [5,8], 'horizontal');
+    function populateAiBoard(board, coords, orients) {
+        board.place('carrier', coords['carrier'], orients['carrierOrient']);
+        board.place('battleship', coords['battleship'], orients['battleshipOrient']);
+        board.place('destroyer', coords['destroyer'], orients['destroyerOrient']);
+        board.place('submarine', coords['submarine'], orients['submarineOrient']);
+        board.place('patrol', coords['patrol'], orients['patrolOrient']);
     }
 
     // Play a round

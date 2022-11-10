@@ -321,7 +321,7 @@ function getCoordsForm() {
     // Returns a random orientation
     function randomOri() {
         let ori;
-        let num = Math.floor(Math.random());
+        let num = Math.floor(Math.random() * 2);
         if (num > 0) {
             ori = 'horizontal';
         } else {
@@ -384,8 +384,8 @@ function getCoordsForm() {
     function aiBattleshipCoords(coord) {
         // get a random coord for carrier
         let ori = randomOri();
-        let rowRegex = /[0-4]\W\d/gm;
-        let colRegex = /\d\W[0-4]/gm;
+        let rowRegex = /[0-6]\W\d/gm;
+        let colRegex = /\d\W[0-6]/gm;
         let match;
         // If the ori horizontal
         if (ori == 'horizontal') {
@@ -399,6 +399,7 @@ function getCoordsForm() {
                 // Compare with carrierData
                 let valid = compareData(aiBattleshipData, aiCarrierData);
                 if (valid == true) {
+                    saveData(coord, ori, aiBattleshipData);
                     return aiBattleshipData
                 } else if (valid == false) {
                     let newcoord = randomCoords();
@@ -421,7 +422,8 @@ function getCoordsForm() {
                 // Compare with carrierData
                 let valid = compareData(aiBattleshipData, aiCarrierData);
                 if (valid == true) {
-                    return aiBattleshipData
+                    saveData(coord, ori, aiBattleshipData);
+                    return aiBattleshipData;
                 } else if (valid == false) {
                     let newcoord = randomCoords();
                     aiBattleshipCoords(newcoord);
@@ -439,8 +441,8 @@ function getCoordsForm() {
     function aiDestroyerCoords(coord) {
         // get a random coord for carrier
         let ori = randomOri();
-        let rowRegex = /[0-3]\W\d/gm;
-        let colRegex = /\d\W[0-3]/gm;
+        let rowRegex = /[0-7]\W\d/gm;
+        let colRegex = /\d\W[0-7]/gm;
         let match;
         // If the ori horizontal
         if (ori == 'horizontal') {
@@ -455,6 +457,7 @@ function getCoordsForm() {
                 let valid = compareData(aiDestroyerData, aiCarrierData);
                 let valid2 = compareData(aiDestroyerData, aiBattleshipData);
                 if (valid == true && valid2 == true) {
+                    saveData(coord, ori, aiDestroyerData);
                     return aiDestroyerData
                 } else if (valid == false || valid2 == false) {
                     let newcoord = randomCoords();
@@ -478,6 +481,7 @@ function getCoordsForm() {
                 let valid = compareData(aiDestroyerData, aiCarrierData);
                 let valid2 = compareData(aiDestroyerData, aiBattleshipData);
                 if (valid == true && valid2 == true) {
+                    saveData(coord, ori, aiDestroyerData);
                     return aiDestroyerData
                 } else if (valid == false || valid2 == false) {
                     let newcoord = randomCoords();
@@ -496,8 +500,8 @@ function getCoordsForm() {
     function aiSubmarineCoords(coord) {
         // get a random coord for carrier
         let ori = randomOri();
-        let rowRegex = /[0-3]\W\d/gm;
-        let colRegex = /\d\W[0-3]/gm;
+        let rowRegex = /[0-7]\W\d/gm;
+        let colRegex = /\d\W[0-7]/gm;
         let match;
         // If the ori horizontal
         if (ori == 'horizontal') {
@@ -513,7 +517,8 @@ function getCoordsForm() {
                 let valid2 = compareData(aiSubmarineData, aiBattleshipData);
                 let valid3 = compareData(aiSubmarineData, aiDestroyerData);
                 if (valid == true && valid2 == true && valid3 == true) {
-                    return aiSubmarineData
+                    saveData(coord, ori, aiSubmarineData);
+                    return aiSubmarineData;
                 } else if (valid == false || valid2 == false || valid3 == false) {
                     let newcoord = randomCoords();
                     aiSubmarineCoords(newcoord);
@@ -537,6 +542,7 @@ function getCoordsForm() {
                 let valid2 = compareData(aiSubmarineData, aiBattleshipData);
                 let valid3 = compareData(aiSubmarineData, aiDestroyerData);
                 if (valid == true && valid2 == true && valid3 == true) {
+                    saveData(coord, ori, aiSubmarineData);
                     return aiSubmarineData
                 } else if (valid == false || valid2 == false || valid3 == false) {
                     let newcoord = randomCoords();
@@ -555,8 +561,8 @@ function getCoordsForm() {
     function aiPatrolCoords(coord) {
         // get a random coord for carrier
         let ori = randomOri();
-        let rowRegex = /[0-3]\W\d/gm;
-        let colRegex = /\d\W[0-3]/gm;
+        let rowRegex = /[0-8]\W\d/gm;
+        let colRegex = /\d\W[0-8]/gm;
         let match;
         // If the ori horizontal
         if (ori == 'horizontal') {
@@ -573,6 +579,7 @@ function getCoordsForm() {
                 let valid3 = compareData(aiPatrolData, aiDestroyerData);
                 let valid4 = compareData(aiPatrolData, aiSubmarineData);
                 if (valid == true && valid2 == true && valid3 == true && valid4 == true) {
+                    saveData(coord, ori, aiPatrolData);
                     return aiPatrolData
                 } else if (valid == false || valid2 == false || valid3 == false || valid4 == false) {
                     let newcoord = randomCoords();
@@ -598,6 +605,7 @@ function getCoordsForm() {
                 let valid3 = compareData(aiPatrolData, aiDestroyerData);
                 let valid4 = compareData(aiPatrolData, aiSubmarineData);
                 if (valid == true && valid2 == true && valid3 == true && valid4 == true) {
+                    saveData(coord, ori, aiPatrolData);
                     return aiPatrolData
                 } else if (valid == false || valid2 == false || valid3 == false || valid4 == false) {
                     let newcoord = randomCoords();
@@ -1293,13 +1301,13 @@ function getCoordsForm() {
 
         // Set the increment
         let increment;
-        if (object === carrierData) {
+        if (object === carrierData || object === aiCarrierData) {
             increment = 5;
-        } else if (object === battleshipData) {
+        } else if (object === battleshipData || object === aiBattleshipData) {
             increment = 4;
-        } else if (object === destroyerData || object === submarineData) {
+        } else if (object === destroyerData || object === submarineData || object === aiDestroyerData || object === aiSubmarineData) {
             increment = 3;
-        } else if (object === patrolData) {
+        } else if (object === patrolData || object === aiPatrolData) {
             increment = 2;
         }
 

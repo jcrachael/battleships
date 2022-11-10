@@ -273,12 +273,7 @@ function Display() {
         // Populate the boards
         let coords = getUserCoords();
         let orients = getUserOrients();
-
-        game.populateHumanBoard(game.humanBoard, coords, orients);
-
         let aiData = aiCoords;
-        console.log(aiData);
-
         let aiShipCoords = {
             carrier: aiData['carrier']['coord'],
             battleship: aiData['battleship']['coord'],
@@ -286,7 +281,6 @@ function Display() {
             submarine: aiData['submarine']['coord'],
             patrol: aiData['patrol']['coord']
         }
-
         let aiOrients = {
             carrierOrient: aiData['carrier']['ori'],
             battleshipOrient: aiData['battleship']['ori'],
@@ -294,8 +288,7 @@ function Display() {
             submarineOrient: aiData['submarine']['ori'],
             patrolOrient: aiData['patrol']['ori']
         }
-
-
+        game.populateHumanBoard(game.humanBoard, coords, orients);
         game.populateAiBoard(game.AiBoard, aiShipCoords, aiOrients);
 
 
@@ -326,7 +319,6 @@ function Display() {
         game.playGame();
         
         // Once gameOver is true, end and return winner
-        
         return game.winner;
     }
 
