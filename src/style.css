@@ -90,32 +90,42 @@ legend {
 }
 
 #get-coords-form > .form-control > * {
-
+    font-size: 0.9rem;
     justify-content: space-evenly;
+}
+
+#get-coords-form > .form-control > label {
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 #get-coords-form > .form-control > input[type="text"] {
     width: 40px;
     text-align: center;
-    margin-left: -10px;
+    
 }
 
 .form-control {
     padding: 10px 0px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .form-control > * {
-    margin: 0px 10px 0px 10px;
     padding: 0.7rem;
     font-size: 1rem;
     border-radius: 2rem;
 }
 
 label {
-    width: 100px;
     text-align: end;
+}
+
+label[for="username"] {
+
+    text-align: center;
+    width: 100px;
 }
 
 input[type="text"] {
@@ -128,10 +138,11 @@ input[type="radio"] {
 }
 
 .radio-container {
-
     display: grid;
-    grid-template-columns: 1rem auto 1rem auto;
+    grid-template-columns: 1rem auto;
+    grid-template-rows: auto auto;
     gap: 0.5rem;
+
 }
 
 .radio-container > * {
@@ -143,6 +154,8 @@ input[type="radio"] {
 .radio-container > label {
     width: 80px;
     text-align: left;
+ 
+    
 }
 
 
@@ -165,10 +178,30 @@ input[type="submit"]:hover, input[type="submit"]:active {
     background-color: #558B2F;
 }
 
-
-
 #submit-coords {
     margin-top: 20px;
+}
+
+.error {
+    z-index: 1;
+    padding: 0;
+    font-size: 0.7rem;
+    color: white;
+    background-color: #f33f63;
+    border-radius: 0 0 5px 5px;
+    box-sizing: border-box;
+    
+}
+
+.error.active {
+    font-size: 0.7rem;
+    margin-top: -20px;
+    width: 250px;
+    padding: 0.3rem 0.5rem 0.2rem 0.5rem;
+}
+
+.invisible {
+    display: none !important;
 }
 
 /* BOARDS */
