@@ -816,12 +816,7 @@ function Display() {
         // Populate the boards
         let coords = getUserCoords();
         let orients = getUserOrients();
-
-        game.populateHumanBoard(game.humanBoard, coords, orients);
-
         let aiData = aiCoords;
-        console.log(aiData);
-
         let aiShipCoords = {
             carrier: aiData['carrier']['coord'],
             battleship: aiData['battleship']['coord'],
@@ -829,7 +824,6 @@ function Display() {
             submarine: aiData['submarine']['coord'],
             patrol: aiData['patrol']['coord']
         }
-
         let aiOrients = {
             carrierOrient: aiData['carrier']['ori'],
             battleshipOrient: aiData['battleship']['ori'],
@@ -837,8 +831,7 @@ function Display() {
             submarineOrient: aiData['submarine']['ori'],
             patrolOrient: aiData['patrol']['ori']
         }
-
-
+        game.populateHumanBoard(game.humanBoard, coords, orients);
         game.populateAiBoard(game.AiBoard, aiShipCoords, aiOrients);
 
 
@@ -869,7 +862,6 @@ function Display() {
         game.playGame();
         
         // Once gameOver is true, end and return winner
-        
         return game.winner;
     }
 
@@ -935,12 +927,12 @@ function Game(name) {
     }
 
     // AiBoard
-    function populateAiBoard(board) {
-        board.place('carrier', [8,0], 'horizontal');
-        board.place('battleship', [3,6], 'vertical');
-        board.place('destroyer', [6,1], 'horizontal');
-        board.place('submarine', [2,2], 'vertical');
-        board.place('patrol', [5,8], 'horizontal');
+    function populateAiBoard(board, coords, orients) {
+        board.place('carrier', coords['carrier'], orients['carrierOrient']);
+        board.place('battleship', coords['battleship'], orients['battleshipOrient']);
+        board.place('destroyer', coords['destroyer'], orients['destroyerOrient']);
+        board.place('submarine', coords['submarine'], orients['submarineOrient']);
+        board.place('patrol', coords['patrol'], orients['patrolOrient']);
     }
 
     // Play a round
@@ -2969,4 +2961,4 @@ game.init();
 /******/ var __webpack_exports__ = (__webpack_exec__(138));
 /******/ }
 ]);
-//# sourceMappingURL=bundle-585c0e3ecd764bc3d879.js.map
+//# sourceMappingURL=bundle-253c1a20d1ff987f17e0.js.map
