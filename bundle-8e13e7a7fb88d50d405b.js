@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* GLOBALS */\r\n\r\n* {\r\n    margin: 0; padding: 0;\r\n    font-family: 'Roboto', Helvetica, Arial, sans-serif;\r\n}\r\n\r\nbody {\r\n\r\n    text-align: center;\r\n}\r\n\r\n\r\n/* HEADER */\r\n\r\nheader {\r\n    margin: 20pt;\r\n}\r\n\r\nheader > h1 {\r\n    padding-bottom: 12pt;\r\n}\r\n\r\n/* ALERT */\r\n\r\n.alert {\r\n    font-size: 0.9rem;\r\n    position: absolute;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    border-radius: 0.5rem;\r\n    top: 60px;\r\n    left: calc(50% - 270px);\r\n    z-index: 1;\r\n    width: 600px;\r\n    padding: 5px 20px;\r\n    border: 1px #a1261e solid;\r\n    box-sizing: border-box;\r\n    background-color: #f56a60;\r\n    color: white;\r\n    margin: 15px auto 0px auto;\r\n    opacity: 0.9;\r\n    transition: opacity 0.6s;\r\n}\r\n\r\n.close-alert {\r\n    margin-left: 15px;\r\n    color: white;\r\n    float: right;\r\n\r\n    line-height: 1.7rem;\r\n    cursor: pointer;\r\n    transition: 0.3s;\r\n    font-weight: 300;\r\n}\r\n\r\n.close-alert:hover {\r\n    color: black;\r\n}\r\n\r\n.hidden {\r\n    opacity: 0;\r\n}\r\n\r\n/* MAIN */\r\n\r\nmain {\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\r\n    margin: 0 auto;\r\n}\r\n\r\n/* FORMS */\r\n\r\n.form-container {\r\n    width: 80%;\r\n}\r\n\r\nform {\r\n    padding: 20px;\r\n}\r\n\r\nlegend {\r\n    padding: 0px 0px 40px 0px;\r\n}\r\n\r\n#get-coords-form > .form-control > * {\r\n    font-size: 0.9rem;\r\n    justify-content: space-evenly;\r\n}\r\n\r\n#get-coords-form > .form-control > label {\r\n    font-size: 1rem;\r\n    font-weight: bold;\r\n}\r\n\r\n#get-coords-form > .form-control > input[type=\"text\"] {\r\n    width: 40px;\r\n    text-align: center;\r\n    \r\n}\r\n\r\n.form-control {\r\n    padding: 10px 0px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.form-control > * {\r\n    padding: 0.7rem;\r\n    font-size: 1rem;\r\n    border-radius: 2rem;\r\n}\r\n\r\nlabel {\r\n    text-align: end;\r\n}\r\n\r\nlabel[for=\"username\"] {\r\n\r\n    text-align: center;\r\n    width: 100px;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n    border: 1px lightgray solid;\r\n    \r\n}\r\n\r\ninput[type=\"radio\"] {\r\n    cursor: pointer;\r\n}\r\n\r\n.radio-container {\r\n    display: grid;\r\n    grid-template-columns: 1rem auto;\r\n    grid-template-rows: auto auto;\r\n    gap: 0.5rem;\r\n\r\n}\r\n\r\n.radio-container > * {\r\n    margin: 0;\r\n    padding: 0;\r\n   \r\n}\r\n\r\n.radio-container > label {\r\n    width: 80px;\r\n    text-align: left;\r\n \r\n    \r\n}\r\n\r\ninput[type=\"submit\"] {\r\n    margin-left: 20px;\r\n    background-color: #7CB342;\r\n    width: 90px;\r\n    color: #fff;\r\n    font-size: 0.9rem;\r\n    font-weight: bold;\r\n    letter-spacing: 1px;\r\n    text-transform: uppercase;\r\n    border: none;\r\n    cursor: pointer;\r\n    transition: 0.2s ease;\r\n    -webkit-transition: 0.2s ease;\r\n}\r\n\r\ninput[type=\"submit\"]:hover, input[type=\"submit\"]:active {\r\n    background-color: #558B2F;\r\n}\r\n\r\n#submit-coords {\r\n    margin-top: 20px;\r\n}\r\n\r\n.error {\r\n    z-index: 1;\r\n    padding: 0;\r\n    font-size: 0.7rem;\r\n    color: white;\r\n    background-color: #f33f63;\r\n    border-radius: 0 0 5px 5px;\r\n    box-sizing: border-box;\r\n    \r\n}\r\n\r\n.error.green {\r\n    background-color: #7CB342;\r\n    cursor: pointer;\r\n}\r\n\r\n.error.green:hover {\r\n    background-color: #558B2F;\r\n    transition: 0.2s;\r\n}\r\n\r\n.error.green.inactive {\r\n    cursor: default;\r\n}\r\n\r\n.error.green.inactive:hover {\r\n    background-color: #7CB342;\r\n}\r\n\r\n.disabled {\r\n    font-style: italic;\r\n    opacity: 0.7;\r\n}\r\n\r\n.error.active {\r\n    font-size: 0.7rem;\r\n    margin-top: -20px;\r\n    width: 250px;\r\n    padding: 0.3rem 0.5rem 0.2rem 0.5rem;\r\n    \r\n}\r\n\r\n.invisible {\r\n    display: none !important;\r\n}\r\n\r\n/* BOARDS */\r\n\r\n.board-container {\r\n    height: 500px;\r\n    width: 500px;\r\n    border: 1px black solid;\r\n    display: grid;\r\n    grid-template-columns: repeat(10, auto);\r\n    grid-template-rows: repeat(10, auto);\r\n    margin: 25px;\r\n\r\n}\r\n\r\n#board-Jasper {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n/* CELLS */\r\n\r\n.cell {\r\n    border: 1px black solid;\r\n    box-sizing: border-box;\r\n    height: 50px;\r\n    width: 50px;\r\n    display: grid;\r\n    align-items: center;\r\n    font-size: 0.9rem;\r\n    background-color: #0D47A1;\r\n}\r\n\r\n#board-Jasper .cell.open:hover {\r\n    background-color: #82B1FF;\r\n}\r\n\r\n.cell-ship {\r\n    background-color: #ffda33;\r\n}\r\n\r\n.cell-ship::before {\r\n    content: 'ship';\r\n}\r\n\r\n.cell-miss {\r\n    background-color: #D4E157;\r\n}\r\n\r\n.cell-miss::before {\r\n    content: 'miss';\r\n}\r\n\r\n.cell-hit {\r\n    background-color: #F44336;\r\n}\r\n\r\n.cell-hit::before {\r\n    content: 'hit';\r\n}\r\n\r\n\r\n/* FOOTER */\r\n\r\nfooter {\r\n    padding-top: 13%;\r\n    bottom: 0;\r\n    font-size: 10pt;\r\n    width: 100%;\r\n    height: 19px;\r\n}", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"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","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');\r\n\r\n/* GLOBALS */\r\n\r\n* {\r\n    margin: 0; padding: 0;\r\n    font-family: 'Roboto', Helvetica, Arial, sans-serif;\r\n}\r\n\r\nbody {\r\n\r\n    text-align: center;\r\n}\r\n\r\n\r\n/* HEADER */\r\n\r\nheader {\r\n    margin: 20pt;\r\n}\r\n\r\nheader > h1 {\r\n    padding-bottom: 12pt;\r\n}\r\n\r\n/* ALERT */\r\n\r\n.alert {\r\n    font-size: 0.9rem;\r\n    position: absolute;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    border-radius: 0.5rem;\r\n    top: 60px;\r\n    left: calc(50% - 270px);\r\n    z-index: 1;\r\n    width: 600px;\r\n    padding: 5px 20px;\r\n    border: 1px #a1261e solid;\r\n    box-sizing: border-box;\r\n    background-color: #f56a60;\r\n    color: white;\r\n    margin: 15px auto 0px auto;\r\n    opacity: 0.9;\r\n    transition: opacity 0.6s;\r\n}\r\n\r\n.close-alert {\r\n    margin-left: 15px;\r\n    color: white;\r\n    float: right;\r\n\r\n    line-height: 1.7rem;\r\n    cursor: pointer;\r\n    transition: 0.3s;\r\n    font-weight: 300;\r\n}\r\n\r\n.close-alert:hover {\r\n    color: black;\r\n}\r\n\r\n.hidden {\r\n    opacity: 0;\r\n}\r\n\r\n/* MAIN */\r\n\r\nmain {\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\r\n    margin: 0 auto;\r\n}\r\n\r\n/* FORMS */\r\n\r\n.form-container {\r\n    width: 80%;\r\n}\r\n\r\nform {\r\n    padding: 20px;\r\n}\r\n\r\nlegend {\r\n    padding: 0px 0px 40px 0px;\r\n}\r\n\r\n#get-coords-form > .form-control > * {\r\n    font-size: 0.9rem;\r\n    justify-content: space-evenly;\r\n}\r\n\r\n#get-coords-form > .form-control > label {\r\n    font-size: 1rem;\r\n    font-weight: bold;\r\n}\r\n\r\n#get-coords-form > .form-control > input[type=\"text\"] {\r\n    width: 40px;\r\n    text-align: center;\r\n    \r\n}\r\n\r\n.form-control {\r\n    padding: 10px 0px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.form-control > * {\r\n    padding: 0.7rem;\r\n    font-size: 1rem;\r\n    border-radius: 2rem;\r\n}\r\n\r\nlabel {\r\n    text-align: end;\r\n}\r\n\r\nlabel[for=\"username\"] {\r\n\r\n    text-align: center;\r\n    width: 100px;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n    border: 1px lightgray solid;\r\n    \r\n}\r\n\r\ninput[type=\"radio\"] {\r\n    cursor: pointer;\r\n}\r\n\r\n.radio-container {\r\n    display: grid;\r\n    grid-template-columns: 1rem auto;\r\n    grid-template-rows: auto auto;\r\n    gap: 0.5rem;\r\n\r\n}\r\n\r\n.radio-container > * {\r\n    margin: 0;\r\n    padding: 0;\r\n   \r\n}\r\n\r\n.radio-container > label {\r\n    width: 80px;\r\n    text-align: left;\r\n \r\n    \r\n}\r\n\r\ninput[type=\"submit\"] {\r\n    margin-left: 20px;\r\n    background-color: #7CB342;\r\n    width: 90px;\r\n    color: #fff;\r\n    font-size: 0.9rem;\r\n    font-weight: bold;\r\n    letter-spacing: 1px;\r\n    text-transform: uppercase;\r\n    border: none;\r\n    cursor: pointer;\r\n    transition: 0.2s ease;\r\n    -webkit-transition: 0.2s ease;\r\n}\r\n\r\ninput[type=\"submit\"]:hover, input[type=\"submit\"]:active {\r\n    background-color: #558B2F;\r\n}\r\n\r\n#submit-coords {\r\n    margin-top: 20px;\r\n}\r\n\r\n.error {\r\n    z-index: 1;\r\n    padding: 0;\r\n    font-size: 0.7rem;\r\n    color: white;\r\n    background-color: #f33f63;\r\n    border-radius: 0 0 5px 5px;\r\n    box-sizing: border-box;\r\n    \r\n}\r\n\r\n.error.green {\r\n    background-color: #7CB342;\r\n    cursor: pointer;\r\n}\r\n\r\n.error.green:hover {\r\n    background-color: #558B2F;\r\n    transition: 0.2s;\r\n}\r\n\r\n.error.green.inactive {\r\n    cursor: default;\r\n}\r\n\r\n.error.green.inactive:hover {\r\n    background-color: #7CB342;\r\n}\r\n\r\n.disabled {\r\n    font-style: italic;\r\n    opacity: 0.7;\r\n}\r\n\r\n.error.active {\r\n    font-size: 0.7rem;\r\n    margin-top: -20px;\r\n    width: 250px;\r\n    padding: 0.3rem 0.5rem 0.2rem 0.5rem;\r\n    \r\n}\r\n\r\n.invisible {\r\n    display: none !important;\r\n}\r\n\r\n/* BOARDS */\r\n\r\n.board-container {\r\n    height: 500px;\r\n    width: 500px;\r\n    border: 1px black solid;\r\n    display: grid;\r\n    grid-template-columns: repeat(10, auto);\r\n    grid-template-rows: repeat(10, auto);\r\n    margin: 25px;\r\n\r\n}\r\n\r\n#board-Jasper {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n/* CELLS */\r\n\r\n.cell {\r\n    border: 1px black solid;\r\n    box-sizing: border-box;\r\n    height: 50px;\r\n    width: 50px;\r\n    display: grid;\r\n    align-items: center;\r\n    font-size: 0.9rem;\r\n    background-color: #0D47A1;\r\n}\r\n\r\n#board-Jasper .cell.open:hover {\r\n    background-color: #82B1FF;\r\n}\r\n\r\n.cell-ship {\r\n    background-color: #ffda33;\r\n}\r\n\r\n.cell-ship::before {\r\n    content: 'ship';\r\n}\r\n\r\n.cell-miss {\r\n    background-color: #D4E157;\r\n}\r\n\r\n.cell-miss::before {\r\n    content: 'miss';\r\n}\r\n\r\n.cell-hit {\r\n    background-color: #F44336;\r\n}\r\n\r\n.cell-hit::before {\r\n    content: 'hit';\r\n}\r\n\r\n\r\n/* FOOTER */\r\n\r\nfooter {\r\n    padding-top: 13%;\r\n    bottom: 0;\r\n    font-size: 10pt;\r\n    width: 100%;\r\n    height: 19px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* GLOBALS */\r\n\r\n* {\r\n    margin: 0; padding: 0;\r\n    font-family: 'Roboto', Helvetica, Arial, sans-serif;\r\n}\r\n\r\nbody {\r\n\r\n    text-align: center;\r\n}\r\n\r\n\r\n/* HEADER */\r\n\r\nheader {\r\n    margin: 20pt;\r\n}\r\n\r\nheader > h1 {\r\n    padding-bottom: 12pt;\r\n}\r\n\r\n/* ALERT */\r\n\r\n.alert {\r\n    font-size: 0.9rem;\r\n    position: absolute;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    border-radius: 0.5rem;\r\n    top: 60px;\r\n    left: calc(50% - 270px);\r\n    z-index: 1;\r\n    width: 600px;\r\n    padding: 5px 20px;\r\n    border: 1px #a1261e solid;\r\n    box-sizing: border-box;\r\n    background-color: #f56a60;\r\n    color: white;\r\n    margin: 15px auto 0px auto;\r\n    opacity: 0.9;\r\n    transition: opacity 0.6s;\r\n}\r\n\r\n.close-alert {\r\n    margin-left: 15px;\r\n    color: white;\r\n    float: right;\r\n\r\n    line-height: 1.7rem;\r\n    cursor: pointer;\r\n    transition: 0.3s;\r\n    font-weight: 300;\r\n}\r\n\r\n.close-alert:hover {\r\n    color: black;\r\n}\r\n\r\n.hidden {\r\n    opacity: 0;\r\n}\r\n\r\n/* MAIN */\r\n\r\nmain {\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\r\n    margin: 0 auto;\r\n}\r\n\r\n/* FORMS */\r\n\r\n.form-container {\r\n    width: 80%;\r\n}\r\n\r\nform {\r\n    padding: 20px;\r\n}\r\n\r\nlegend {\r\n    padding: 0px 0px 40px 0px;\r\n}\r\n\r\n#get-coords-form > .form-control > * {\r\n    font-size: 0.9rem;\r\n    justify-content: space-evenly;\r\n}\r\n\r\n#get-coords-form > .form-control > label {\r\n    font-size: 1rem;\r\n    font-weight: bold;\r\n}\r\n\r\n#get-coords-form > .form-control > input[type=\"text\"] {\r\n    width: 40px;\r\n    text-align: center;\r\n    \r\n}\r\n\r\n.form-control {\r\n    padding: 10px 0px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.form-control > * {\r\n    padding: 0.7rem;\r\n    font-size: 1rem;\r\n    border-radius: 2rem;\r\n}\r\n\r\nlabel {\r\n    text-align: end;\r\n}\r\n\r\nlabel[for=\"username\"] {\r\n\r\n    text-align: center;\r\n    width: 100px;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n    border: 1px lightgray solid;\r\n    \r\n}\r\n\r\ninput[type=\"radio\"] {\r\n    cursor: pointer;\r\n}\r\n\r\n.radio-container {\r\n    display: grid;\r\n    grid-template-columns: 1rem auto;\r\n    grid-template-rows: auto auto;\r\n    gap: 0.5rem;\r\n\r\n}\r\n\r\n.radio-container > * {\r\n    margin: 0;\r\n    padding: 0;\r\n   \r\n}\r\n\r\n.radio-container > label {\r\n    width: 80px;\r\n    text-align: left;\r\n \r\n    \r\n}\r\n\r\ninput[type=\"submit\"] {\r\n    margin-left: 20px;\r\n    background-color: #7CB342;\r\n    width: 90px;\r\n    color: #fff;\r\n    font-size: 0.9rem;\r\n    font-weight: bold;\r\n    letter-spacing: 1px;\r\n    text-transform: uppercase;\r\n    border: none;\r\n    cursor: pointer;\r\n    transition: 0.2s ease;\r\n    -webkit-transition: 0.2s ease;\r\n}\r\n\r\ninput[type=\"submit\"]:hover, input[type=\"submit\"]:active {\r\n    background-color: #558B2F;\r\n}\r\n\r\n#submit-coords {\r\n    margin-top: 20px;\r\n}\r\n\r\n.error {\r\n    z-index: 1;\r\n    padding: 0;\r\n    font-size: 0.7rem;\r\n    color: white;\r\n    background-color: #f33f63;\r\n    border-radius: 0 0 5px 5px;\r\n    box-sizing: border-box;\r\n    \r\n}\r\n\r\n.error.green {\r\n    background-color: #7CB342;\r\n    cursor: pointer;\r\n}\r\n\r\n.error.green:hover {\r\n    background-color: #558B2F;\r\n    transition: 0.2s;\r\n}\r\n\r\n.error.green.inactive {\r\n    cursor: default;\r\n}\r\n\r\n.error.green.inactive:hover {\r\n    background-color: #7CB342;\r\n}\r\n\r\n.disabled {\r\n    font-style: italic;\r\n    opacity: 0.7;\r\n}\r\n\r\n.error.active {\r\n    font-size: 0.7rem;\r\n    margin-top: -20px;\r\n    width: 250px;\r\n    padding: 0.3rem 0.5rem 0.2rem 0.5rem;\r\n    \r\n}\r\n\r\n.invisible {\r\n    display: none !important;\r\n}\r\n\r\n/* BOARDS */\r\n\r\n.board-container {\r\n    height: 500px;\r\n    width: 500px;\r\n    border: 1px black solid;\r\n    display: grid;\r\n    grid-template-columns: repeat(10, auto);\r\n    grid-template-rows: repeat(10, auto);\r\n    margin: 25px;\r\n\r\n}\r\n\r\n#board-Jasper {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n/* CELLS */\r\n\r\n.cell {\r\n    border: 1px black solid;\r\n    box-sizing: border-box;\r\n    height: 50px;\r\n    width: 50px;\r\n    display: grid;\r\n    align-items: center;\r\n    font-size: 0.9rem;\r\n    background-color: #0D47A1;\r\n}\r\n\r\n#board-jasper .cell.open:hover, #board-jasper .cell.ship.open:hover {\r\n    background-color: #82B1FF;\r\n    cursor: pointer;\r\n}\r\n\r\n#board-human .ship {\r\n    background-color: #ffda33;\r\n}\r\n\r\n#board-human .ship::before {\r\n    content: 'ship';\r\n}\r\n\r\n.miss {\r\n    background-color: #80c045;\r\n}\r\n\r\n.miss::before {\r\n    content: 'miss';\r\n}\r\n\r\n.hit {\r\n    background-color: #F44336 !important;\r\n}\r\n\r\n.hit::before {\r\n    content: 'hit' !important;\r\n}\r\n\r\n.sink {\r\n    background-color: #F44336 !important;\r\n}\r\n\r\n.sink::before {\r\n    content: 'sink' !important;\r\n}\r\n\r\n\r\n/* FOOTER */\r\n\r\nfooter {\r\n    padding-top: 13%;\r\n    bottom: 0;\r\n    font-size: 10pt;\r\n    width: 100%;\r\n    height: 19px;\r\n}", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"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","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');\r\n\r\n/* GLOBALS */\r\n\r\n* {\r\n    margin: 0; padding: 0;\r\n    font-family: 'Roboto', Helvetica, Arial, sans-serif;\r\n}\r\n\r\nbody {\r\n\r\n    text-align: center;\r\n}\r\n\r\n\r\n/* HEADER */\r\n\r\nheader {\r\n    margin: 20pt;\r\n}\r\n\r\nheader > h1 {\r\n    padding-bottom: 12pt;\r\n}\r\n\r\n/* ALERT */\r\n\r\n.alert {\r\n    font-size: 0.9rem;\r\n    position: absolute;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    border-radius: 0.5rem;\r\n    top: 60px;\r\n    left: calc(50% - 270px);\r\n    z-index: 1;\r\n    width: 600px;\r\n    padding: 5px 20px;\r\n    border: 1px #a1261e solid;\r\n    box-sizing: border-box;\r\n    background-color: #f56a60;\r\n    color: white;\r\n    margin: 15px auto 0px auto;\r\n    opacity: 0.9;\r\n    transition: opacity 0.6s;\r\n}\r\n\r\n.close-alert {\r\n    margin-left: 15px;\r\n    color: white;\r\n    float: right;\r\n\r\n    line-height: 1.7rem;\r\n    cursor: pointer;\r\n    transition: 0.3s;\r\n    font-weight: 300;\r\n}\r\n\r\n.close-alert:hover {\r\n    color: black;\r\n}\r\n\r\n.hidden {\r\n    opacity: 0;\r\n}\r\n\r\n/* MAIN */\r\n\r\nmain {\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\r\n    margin: 0 auto;\r\n}\r\n\r\n/* FORMS */\r\n\r\n.form-container {\r\n    width: 80%;\r\n}\r\n\r\nform {\r\n    padding: 20px;\r\n}\r\n\r\nlegend {\r\n    padding: 0px 0px 40px 0px;\r\n}\r\n\r\n#get-coords-form > .form-control > * {\r\n    font-size: 0.9rem;\r\n    justify-content: space-evenly;\r\n}\r\n\r\n#get-coords-form > .form-control > label {\r\n    font-size: 1rem;\r\n    font-weight: bold;\r\n}\r\n\r\n#get-coords-form > .form-control > input[type=\"text\"] {\r\n    width: 40px;\r\n    text-align: center;\r\n    \r\n}\r\n\r\n.form-control {\r\n    padding: 10px 0px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.form-control > * {\r\n    padding: 0.7rem;\r\n    font-size: 1rem;\r\n    border-radius: 2rem;\r\n}\r\n\r\nlabel {\r\n    text-align: end;\r\n}\r\n\r\nlabel[for=\"username\"] {\r\n\r\n    text-align: center;\r\n    width: 100px;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n    border: 1px lightgray solid;\r\n    \r\n}\r\n\r\ninput[type=\"radio\"] {\r\n    cursor: pointer;\r\n}\r\n\r\n.radio-container {\r\n    display: grid;\r\n    grid-template-columns: 1rem auto;\r\n    grid-template-rows: auto auto;\r\n    gap: 0.5rem;\r\n\r\n}\r\n\r\n.radio-container > * {\r\n    margin: 0;\r\n    padding: 0;\r\n   \r\n}\r\n\r\n.radio-container > label {\r\n    width: 80px;\r\n    text-align: left;\r\n \r\n    \r\n}\r\n\r\ninput[type=\"submit\"] {\r\n    margin-left: 20px;\r\n    background-color: #7CB342;\r\n    width: 90px;\r\n    color: #fff;\r\n    font-size: 0.9rem;\r\n    font-weight: bold;\r\n    letter-spacing: 1px;\r\n    text-transform: uppercase;\r\n    border: none;\r\n    cursor: pointer;\r\n    transition: 0.2s ease;\r\n    -webkit-transition: 0.2s ease;\r\n}\r\n\r\ninput[type=\"submit\"]:hover, input[type=\"submit\"]:active {\r\n    background-color: #558B2F;\r\n}\r\n\r\n#submit-coords {\r\n    margin-top: 20px;\r\n}\r\n\r\n.error {\r\n    z-index: 1;\r\n    padding: 0;\r\n    font-size: 0.7rem;\r\n    color: white;\r\n    background-color: #f33f63;\r\n    border-radius: 0 0 5px 5px;\r\n    box-sizing: border-box;\r\n    \r\n}\r\n\r\n.error.green {\r\n    background-color: #7CB342;\r\n    cursor: pointer;\r\n}\r\n\r\n.error.green:hover {\r\n    background-color: #558B2F;\r\n    transition: 0.2s;\r\n}\r\n\r\n.error.green.inactive {\r\n    cursor: default;\r\n}\r\n\r\n.error.green.inactive:hover {\r\n    background-color: #7CB342;\r\n}\r\n\r\n.disabled {\r\n    font-style: italic;\r\n    opacity: 0.7;\r\n}\r\n\r\n.error.active {\r\n    font-size: 0.7rem;\r\n    margin-top: -20px;\r\n    width: 250px;\r\n    padding: 0.3rem 0.5rem 0.2rem 0.5rem;\r\n    \r\n}\r\n\r\n.invisible {\r\n    display: none !important;\r\n}\r\n\r\n/* BOARDS */\r\n\r\n.board-container {\r\n    height: 500px;\r\n    width: 500px;\r\n    border: 1px black solid;\r\n    display: grid;\r\n    grid-template-columns: repeat(10, auto);\r\n    grid-template-rows: repeat(10, auto);\r\n    margin: 25px;\r\n\r\n}\r\n\r\n#board-Jasper {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n/* CELLS */\r\n\r\n.cell {\r\n    border: 1px black solid;\r\n    box-sizing: border-box;\r\n    height: 50px;\r\n    width: 50px;\r\n    display: grid;\r\n    align-items: center;\r\n    font-size: 0.9rem;\r\n    background-color: #0D47A1;\r\n}\r\n\r\n#board-jasper .cell.open:hover, #board-jasper .cell.ship.open:hover {\r\n    background-color: #82B1FF;\r\n    cursor: pointer;\r\n}\r\n\r\n#board-human .ship {\r\n    background-color: #ffda33;\r\n}\r\n\r\n#board-human .ship::before {\r\n    content: 'ship';\r\n}\r\n\r\n.miss {\r\n    background-color: #80c045;\r\n}\r\n\r\n.miss::before {\r\n    content: 'miss';\r\n}\r\n\r\n.hit {\r\n    background-color: #F44336 !important;\r\n}\r\n\r\n.hit::before {\r\n    content: 'hit' !important;\r\n}\r\n\r\n.sink {\r\n    background-color: #F44336 !important;\r\n}\r\n\r\n.sink::before {\r\n    content: 'sink' !important;\r\n}\r\n\r\n\r\n/* FOOTER */\r\n\r\nfooter {\r\n    padding-top: 13%;\r\n    bottom: 0;\r\n    font-size: 10pt;\r\n    width: 100%;\r\n    height: 19px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -590,7 +590,14 @@ function Display() {
     function printBoard(board) {
         // make outer container
         const outerdiv = document.createElement('div');
-        outerdiv.setAttribute('id', 'board-' + board.owner.name);
+
+        if (board.owner.name == 'Jasper') {
+            outerdiv.setAttribute('id', 'board-jasper')
+        } else {
+            outerdiv.setAttribute('id', 'board-human');
+        }
+        
+        
         main.appendChild(outerdiv);
         // make header
         const divheader = document.createElement('p');
@@ -606,26 +613,19 @@ function Display() {
             for (let j = 0; j < board.board[i].length; j++) {
                 const cell = document.createElement('div');
                 if (typeof board.board[i][j] == 'object') {
-                    cell.classList.add('cell-ship');   
+                    cell.classList.add('ship');   
                 } else {
-                    cell.classList.add(`cell-${board.board[i][j]}`);
+                    cell.classList.add(`cell-${[i]}-${board.board[i][j]}`);
                 }
                 cell.classList.add('cell');
+
                 cell.classList.add('open');
+
                 cell.classList.add('cell-' + board.owner.name);
                 cell.setAttribute('data-coord', `${board.owner.name}-cell-${i}-${j}`);
                 innerdiv.appendChild(cell);
             };
-        // Remove open class from used cells
-        const cells = document.querySelectorAll('.cell');
-        cells.forEach((cell) => {
-            // Remove 'open' class from this cell if it has been used
-            if (cell.classList.contains('cell-miss') || 
-                cell.classList.contains('cell-ship') ||
-                cell.classList.contains('cell-hit')) {
-                cell.classList.remove('open');
-            }
-        })
+        
         };
 
         
@@ -637,7 +637,7 @@ function Display() {
     };
 
     // Gets user's coords for placing their ships 
-    function getUserShips(aiCoords) {
+    function getUserShips() {
         const carrierinput = document.getElementById('carrier');
         const carrierRadioHor = document.getElementById('carrier-horizontal');
         const carrierRadioVer = document.getElementById('carrier-vertical');
@@ -749,8 +749,6 @@ function Display() {
         }
 
         main.innerHTML = '';
-
-        startGame(username, aiCoords);
         
     }
 
@@ -847,20 +845,24 @@ function Display() {
                     }
                     // Get user's input
                     let input = [];
-                    // save the input that was clicked
-                    let coordString = cell.getAttribute('data-coord').slice(5).replace(/-/, '');
-                    for (let i = 0; i < coordString.length; i++) {
-                        input.push(coordString[i])
-                    }
+                    // save the input that was clicked 'Jasper-cell-2-2'
+                    let coordString = cell.getAttribute('data-coord').slice(12) // '2-2'
+                    input = coordString.split('-');
                     currentInput = input;
+                    
                     // DEBUG console log
-                    console.log('Clicked: ' + input)
+                    console.log('User clicked: ' + currentInput)
+                    
+                    // call game.playRound(currentInput);
+                    game.playRound(currentInput);
+                  
+
+                
+               
+                  
                 })
             })
 
-        // Commence while loop
-        game.playGame();
-        
         // Once gameOver is true, end and return winner
         return game.winner;
     }
@@ -916,8 +918,6 @@ function Game(name) {
     let receivingBoard = AiBoard;
 
     // Populate each board with ships
-    // TODO: make AiBoard populate randomly and humanBoard by user input
-    // humanBoard
     function populateHumanBoard(board, coords, orients) {
         board.place('carrier', coords['userCarrier'], orients['userCarrierOrient']);
         board.place('battleship', coords['userBattleship'], orients['userBattleshipOrient']);
@@ -935,78 +935,110 @@ function Game(name) {
         board.place('patrol', coords['patrol'], orients['patrolOrient']);
     }
 
-    // Play a round
-    function playRound() {
-        // Initialise an input variable
-        let input;
-    
-        if (activePlayer == humanPlayer) {
-            console.log('Human\'s turn');
-            // Get user's coord to attack (from the click event)
-            let coords = humanPlayer.randomCoords();
-            console.log('Human\'s first coords: ' + coords)
-            let usedCoords = humanPlayer.usedCoords;
-            let turn = humanPlayer.randomTurn(usedCoords, coords);
-            if (turn == undefined) {
-                console.log('Turn is undefined') 
-            }
-          
-            input = turn.coords;
-            console.log('Human\'s input: ' + input);
-            
-        } else if (activePlayer == _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer) {
-            console.log('Computer\'s turn')
-            // Get random coords
-            let coords = _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer.randomCoords();
-            console.log('Computer\'s first coords: ' + coords)
-            let usedCoords = _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer.usedCoords;
-            let turn = _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer.randomTurn(usedCoords, coords);
-       
-            input = turn.coords;
-            console.log('Computer\'s input: ' + input);
-        }
-        
-        // Attack the receiving board
-        let attack = receivingBoard.receiveAttack(input);
+    // Performs the human's turn
+    function humanTurn(input) {
+        // human's turn
+        let usedCoords = humanPlayer.usedCoords;
+        let attack = AiBoard.receiveAttack(input);
+        let l = Object.keys(usedCoords).length;
+        usedCoords[l] = input;
+
+        // update the display
+        let inputString = input.toString();
+        let coord = inputString.replace(",", "-");
+        let cell = document.querySelector(`[data-coord="Jasper-cell-${coord}"]`)
+        cell.classList.remove('open');
+        cell.classList.add(attack.resultType);
+
         // If a ship was just sunk,
         if (attack.resultType === 'sink') {
             // Check if shipsLeft on receiving board
-            let remainingShips = receivingBoard.shipsLeft();
+            let remainingShips = AiBoard.shipsLeft();
             if (remainingShips === 0) {
                 // If the receiving board has no ships left, the active player wins
-                winner = activePlayer;
+                winner = humanPlayer;
                 gameOver = true;
                 return gameOver;
             }
         }
-        // switch the players and receivingBoard for the next turn
-        if (activePlayer == humanPlayer) {
-            activePlayer = _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer;
-            receivingBoard = humanBoard;
-        } else if (activePlayer == _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer) {
-            activePlayer = humanPlayer;
-            receivingBoard = AiBoard;
+
+        return attack;
+    }
+
+    // Performs the AI's turn
+    function AiTurn() {
+        // Get random coords
+        let coords = _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer.randomCoords();
+        let usedCoords = _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer.usedCoords;
+        let turn = _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer.randomTurn(usedCoords, coords);
+        let aiInput = turn.coords;
+        let aiAttack = humanBoard.receiveAttack(aiInput);
+
+        // Console
+        console.log('AI attack: ' + aiAttack.resultType);
+
+        // update the display
+        let aiInputString = aiInput.toString();
+        let aiCoord = aiInputString.replace(",", "-");
+        let aiCell = document.querySelector(`[data-coord="${humanBoard.owner.name}-cell-${aiCoord}"]`);
+
+        aiCell.classList.remove('open');
+        aiCell.classList.add(aiAttack.resultType);
+
+        // If a ship was just sunk,
+        if (aiAttack.resultType === 'sink') {
+            // Check if shipsLeft on receiving board
+            let remainingShips = humanBoard.shipsLeft();
+            if (remainingShips === 0) {
+                // If the receiving board has no ships left, the active player wins
+                winner = _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer;
+                gameOver = true;
+                return gameOver;
+            }
         }
-        return gameOver;
-    };
 
+        return {aiAttack, aiInput};
+    }
 
-    // Play the game
-    function playGame() {
-        while (!gameOver) {
-            // Play rounds of the game
-            playRound();
+    // play a round
+    function playRound(input) {
+        let humanTurnRes = humanTurn(input);
+
+        let winner = checkWinner();
+        if (winner) {
+            gameOver = true;
+            return { winner, gameOver }
         }
 
-        // Once gameOver is true
-        // If winner is null, declare a draw
-        if (winner == null) {
-            winner = 'Draw'
-        };
-        // DEBUG CONSOLE LOGS
-        console.log('The winner is ' + winner.name)
-        return winner
+        let aiTurnRes = setTimeout(AiTurn, 500);
 
+        winner = checkWinner();
+
+        if (winner) {
+            gameOver = true;
+            return { winner, gameOver }
+        }
+
+        console.log('No winner yet, have another turn');
+
+        return {humanTurnRes, aiTurnRes}
+
+    }
+
+
+    // Check for a winner
+    function checkWinner() {
+        if (!gameOver) { return }
+        else if (gameOver) {
+            // Once gameOver is true
+            // If winner is null, declare a draw
+            if (winner == null) {
+                winner = 'Draw'
+            };
+            // DEBUG CONSOLE LOGS
+            console.log('The winner is ' + winner.name)
+            return winner
+        }
     }
     
     return {
@@ -1020,7 +1052,8 @@ function Game(name) {
         receivingBoard: receivingBoard,
         populateAiBoard: populateAiBoard,
         populateHumanBoard: populateHumanBoard,
-        playGame: playGame,
+        checkWinner: checkWinner,
+        playRound: playRound,
     }
 }
 
@@ -1143,8 +1176,8 @@ function Gameboard(owner) {
                 
                 let cell = document.querySelector(`[data-coord="${id}"]`);
                 
-                cell.classList.remove('open');
-                cell.classList.add('cell-ship');
+                cell.classList.add('ship');
+                cell.classList.add('open');
             }
 
             return board;
@@ -1158,6 +1191,7 @@ function Gameboard(owner) {
             let xCoord = coords[1];
             let yCoord = coords[0];
             let square = board[yCoord][xCoord];
+
             if (typeof square == 'string') {
                 result = "You've already fired here!";
                 resultType = 'bounce';
@@ -1165,6 +1199,10 @@ function Gameboard(owner) {
                 result = 'Direct hit!';
                 resultType = 'hit';
                 let ship = board[yCoord][xCoord];
+
+                console.log('A ship was hit:');
+                console.log(ship);
+
                 board[yCoord][xCoord] = 'hit';
                 ship.hit();
                 ship.isSunk();
@@ -1219,7 +1257,7 @@ function Player(name) {
 
         
         let isSubArray = isSubset(coords, usedCoords);
-        console.log(isSubArray);
+    
         // base case
         // If the coords do not match any used coords
         if (isSubArray === false) {
@@ -1236,9 +1274,9 @@ function Player(name) {
 
         } 
         // If the coords do match, try again
-        console.log('Coords match, finding new coord...');
+    
         coords = randomCoords();
-        console.log('New coords: ' + coords);
+
         return randomTurn(usedCoords, coords);
 
         
@@ -1249,8 +1287,8 @@ function Player(name) {
     // Returns true if arr1 is a subset of arr2
     function isSubset(coords,usedCoords) {
 
-        console.log('Checking if coords match...');
-        console.log('Coord: ' + coords);
+  
+        console.log('AI clicked: ' + coords);
 
         // Loop through each item in usedCoords
         let l = Object.keys(usedCoords).length;
@@ -1362,6 +1400,9 @@ function gameLoop() {
         setNameFormListener();
     };
 
+
+    
+
     // Private helper function for init() that sets event listener on the get name form
     function setNameFormListener() {
         // get submit name btn
@@ -1405,7 +1446,8 @@ function gameLoop() {
         submitCoords.addEventListener('click', function(e) {
             e.preventDefault();
             let aiCoords = coordsForm.getAiCoords();
-            displayController.getUserShips(aiCoords);
+            displayController.getUserShips();
+            displayController.startGame(username, aiCoords);
             
         });
     }
@@ -2190,7 +2232,7 @@ function getCoordsForm() {
                         saveData(string, ori, battleshipData);
                         // Compare with carrierData
                         let valid = compareData(battleshipData, carrierData);
-                        console.log('Valid: ' + valid);
+                       
                         if (valid == true) {
                             //move on to the next
                             battleshipError.textContent = 'Click here for next ship';
@@ -2213,7 +2255,6 @@ function getCoordsForm() {
                         saveData(string, ori, battleshipData);
                         // Compare with carrierData
                         let valid = compareData(battleshipData, carrierData);
-                        console.log('Valid: ' + valid);
                         if (valid == true) {
                             //move on to the next
                             battleshipError.textContent = 'Click here for next ship';
@@ -2249,7 +2290,6 @@ function getCoordsForm() {
                         saveData(string, 'horizontal', battleshipData);
                         // Compare with carrierData
                         let valid = compareData(battleshipData, carrierData);
-                        console.log('Valid: ' + valid);
                         if (valid == true) {
                             //move on to the next
                             battleshipError.textContent = 'Click here for next ship';
@@ -2276,7 +2316,6 @@ function getCoordsForm() {
                         saveData(string, 'vertical', battleshipData);
                         // Compare with carrierData
                         let valid = compareData(battleshipData, carrierData);
-                        console.log('Valid: ' + valid);
                         if (valid == true) {
                             //move on to the next
                             battleshipError.textContent = 'Click here for next ship';
@@ -2342,8 +2381,6 @@ function getCoordsForm() {
                         // Compare with carrierData & battleshipData
                         let valid = compareData(destroyerData, carrierData);
                         let valid2 = compareData(destroyerData, battleshipData);
-                        console.log('Valid vs carrier: ' + valid);
-                        console.log('Valid vs battleship: ' + valid2);
                         if (valid == true && valid2 == true) {
                             //move on to the next
                             destroyerError.textContent = 'Click here for next ship';
@@ -2831,13 +2868,6 @@ function getCoordsForm() {
         toggleDisabled(input);
         toggleDisabled(radios[0]);
         toggleDisabled(radios[2]);
-
-        // DEBUG console logs
-        console.log('Current form-control: ');
-        console.log(currentFormControl);
-
-        console.log('Next form-control: ');
-        console.log(nextFormControl);
     };
 
     function getAiCoords() {
@@ -2969,4 +2999,4 @@ game.init();
 /******/ var __webpack_exports__ = (__webpack_exec__(138));
 /******/ }
 ]);
-//# sourceMappingURL=bundle-e1d057101a2e6db318f1.js.map
+//# sourceMappingURL=bundle-8e13e7a7fb88d50d405b.js.map
