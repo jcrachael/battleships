@@ -257,32 +257,41 @@ input[type="submit"]:hover, input[type="submit"]:active {
     background-color: #0D47A1;
 }
 
-#board-Jasper .cell.open:hover {
+#board-jasper .cell.open:hover, #board-jasper .cell.ship.open:hover {
     background-color: #82B1FF;
+    cursor: pointer;
 }
 
-.cell-ship {
+#board-human .ship {
     background-color: #ffda33;
 }
 
-.cell-ship::before {
+#board-human .ship::before {
     content: 'ship';
 }
 
-.cell-miss {
-    background-color: #D4E157;
+.miss {
+    background-color: #80c045;
 }
 
-.cell-miss::before {
+.miss::before {
     content: 'miss';
 }
 
-.cell-hit {
-    background-color: #F44336;
+.hit {
+    background-color: #F44336 !important;
 }
 
-.cell-hit::before {
-    content: 'hit';
+.hit::before {
+    content: 'hit' !important;
+}
+
+.sink {
+    background-color: #F44336 !important;
+}
+
+.sink::before {
+    content: 'sink' !important;
 }
 
 

@@ -47,7 +47,14 @@ function Display() {
     function printBoard(board) {
         // make outer container
         const outerdiv = document.createElement('div');
-        outerdiv.setAttribute('id', 'board-' + board.owner.name);
+
+        if (board.owner.name == 'Jasper') {
+            outerdiv.setAttribute('id', 'board-jasper')
+        } else {
+            outerdiv.setAttribute('id', 'board-human');
+        }
+        
+        
         main.appendChild(outerdiv);
         // make header
         const divheader = document.createElement('p');
@@ -63,26 +70,19 @@ function Display() {
             for (let j = 0; j < board.board[i].length; j++) {
                 const cell = document.createElement('div');
                 if (typeof board.board[i][j] == 'object') {
-                    cell.classList.add('cell-ship');   
+                    cell.classList.add('ship');   
                 } else {
-                    cell.classList.add(`cell-${board.board[i][j]}`);
+                    cell.classList.add(`cell-${[i]}-${board.board[i][j]}`);
                 }
                 cell.classList.add('cell');
+
                 cell.classList.add('open');
+
                 cell.classList.add('cell-' + board.owner.name);
                 cell.setAttribute('data-coord', `${board.owner.name}-cell-${i}-${j}`);
                 innerdiv.appendChild(cell);
             };
-        // Remove open class from used cells
-        const cells = document.querySelectorAll('.cell');
-        cells.forEach((cell) => {
-            // Remove 'open' class from this cell if it has been used
-            if (cell.classList.contains('cell-miss') || 
-                cell.classList.contains('cell-ship') ||
-                cell.classList.contains('cell-hit')) {
-                cell.classList.remove('open');
-            }
-        })
+        
         };
 
         
@@ -94,7 +94,7 @@ function Display() {
     };
 
     // Gets user's coords for placing their ships 
-    function getUserShips(aiCoords) {
+    function getUserShips() {
         const carrierinput = document.getElementById('carrier');
         const carrierRadioHor = document.getElementById('carrier-horizontal');
         const carrierRadioVer = document.getElementById('carrier-vertical');
@@ -206,8 +206,6 @@ function Display() {
         }
 
         main.innerHTML = '';
-
-        startGame(username, aiCoords);
         
     }
 
@@ -304,20 +302,24 @@ function Display() {
                     }
                     // Get user's input
                     let input = [];
-                    // save the input that was clicked
-                    let coordString = cell.getAttribute('data-coord').slice(5).replace(/-/, '');
-                    for (let i = 0; i < coordString.length; i++) {
-                        input.push(coordString[i])
-                    }
+                    // save the input that was clicked 'Jasper-cell-2-2'
+                    let coordString = cell.getAttribute('data-coord').slice(12) // '2-2'
+                    input = coordString.split('-');
                     currentInput = input;
+                    
                     // DEBUG console log
-                    console.log('Clicked: ' + input)
+                    console.log('User clicked: ' + currentInput)
+                    
+                    // call game.playRound(currentInput);
+                    game.playRound(currentInput);
+                  
+
+                
+               
+                  
                 })
             })
 
-        // Commence while loop
-        game.playGame();
-        
         // Once gameOver is true, end and return winner
         return game.winner;
     }

@@ -752,7 +752,7 @@ function getCoordsForm() {
                         saveData(string, ori, battleshipData);
                         // Compare with carrierData
                         let valid = compareData(battleshipData, carrierData);
-                        console.log('Valid: ' + valid);
+                       
                         if (valid == true) {
                             //move on to the next
                             battleshipError.textContent = 'Click here for next ship';
@@ -775,7 +775,6 @@ function getCoordsForm() {
                         saveData(string, ori, battleshipData);
                         // Compare with carrierData
                         let valid = compareData(battleshipData, carrierData);
-                        console.log('Valid: ' + valid);
                         if (valid == true) {
                             //move on to the next
                             battleshipError.textContent = 'Click here for next ship';
@@ -811,7 +810,6 @@ function getCoordsForm() {
                         saveData(string, 'horizontal', battleshipData);
                         // Compare with carrierData
                         let valid = compareData(battleshipData, carrierData);
-                        console.log('Valid: ' + valid);
                         if (valid == true) {
                             //move on to the next
                             battleshipError.textContent = 'Click here for next ship';
@@ -838,7 +836,6 @@ function getCoordsForm() {
                         saveData(string, 'vertical', battleshipData);
                         // Compare with carrierData
                         let valid = compareData(battleshipData, carrierData);
-                        console.log('Valid: ' + valid);
                         if (valid == true) {
                             //move on to the next
                             battleshipError.textContent = 'Click here for next ship';
@@ -904,8 +901,6 @@ function getCoordsForm() {
                         // Compare with carrierData & battleshipData
                         let valid = compareData(destroyerData, carrierData);
                         let valid2 = compareData(destroyerData, battleshipData);
-                        console.log('Valid vs carrier: ' + valid);
-                        console.log('Valid vs battleship: ' + valid2);
                         if (valid == true && valid2 == true) {
                             //move on to the next
                             destroyerError.textContent = 'Click here for next ship';
@@ -1393,13 +1388,6 @@ function getCoordsForm() {
         toggleDisabled(input);
         toggleDisabled(radios[0]);
         toggleDisabled(radios[2]);
-
-        // DEBUG console logs
-        console.log('Current form-control: ');
-        console.log(currentFormControl);
-
-        console.log('Next form-control: ');
-        console.log(nextFormControl);
     };
 
     function getAiCoords() {

@@ -18,8 +18,6 @@ function Game(name) {
     let receivingBoard = AiBoard;
 
     // Populate each board with ships
-    // TODO: make AiBoard populate randomly and humanBoard by user input
-    // humanBoard
     function populateHumanBoard(board, coords, orients) {
         board.place('carrier', coords['userCarrier'], orients['userCarrierOrient']);
         board.place('battleship', coords['userBattleship'], orients['userBattleshipOrient']);
@@ -37,78 +35,110 @@ function Game(name) {
         board.place('patrol', coords['patrol'], orients['patrolOrient']);
     }
 
-    // Play a round
-    function playRound() {
-        // Initialise an input variable
-        let input;
-    
-        if (activePlayer == humanPlayer) {
-            console.log('Human\'s turn');
-            // Get user's coord to attack (from the click event)
-            let coords = humanPlayer.randomCoords();
-            console.log('Human\'s first coords: ' + coords)
-            let usedCoords = humanPlayer.usedCoords;
-            let turn = humanPlayer.randomTurn(usedCoords, coords);
-            if (turn == undefined) {
-                console.log('Turn is undefined') 
-            }
-          
-            input = turn.coords;
-            console.log('Human\'s input: ' + input);
-            
-        } else if (activePlayer == AiPlayer) {
-            console.log('Computer\'s turn')
-            // Get random coords
-            let coords = AiPlayer.randomCoords();
-            console.log('Computer\'s first coords: ' + coords)
-            let usedCoords = AiPlayer.usedCoords;
-            let turn = AiPlayer.randomTurn(usedCoords, coords);
-       
-            input = turn.coords;
-            console.log('Computer\'s input: ' + input);
-        }
-        
-        // Attack the receiving board
-        let attack = receivingBoard.receiveAttack(input);
+    // Performs the human's turn
+    function humanTurn(input) {
+        // human's turn
+        let usedCoords = humanPlayer.usedCoords;
+        let attack = AiBoard.receiveAttack(input);
+        let l = Object.keys(usedCoords).length;
+        usedCoords[l] = input;
+
+        // update the display
+        let inputString = input.toString();
+        let coord = inputString.replace(",", "-");
+        let cell = document.querySelector(`[data-coord="Jasper-cell-${coord}"]`)
+        cell.classList.remove('open');
+        cell.classList.add(attack.resultType);
+
         // If a ship was just sunk,
         if (attack.resultType === 'sink') {
             // Check if shipsLeft on receiving board
-            let remainingShips = receivingBoard.shipsLeft();
+            let remainingShips = AiBoard.shipsLeft();
             if (remainingShips === 0) {
                 // If the receiving board has no ships left, the active player wins
-                winner = activePlayer;
+                winner = humanPlayer;
                 gameOver = true;
                 return gameOver;
             }
         }
-        // switch the players and receivingBoard for the next turn
-        if (activePlayer == humanPlayer) {
-            activePlayer = AiPlayer;
-            receivingBoard = humanBoard;
-        } else if (activePlayer == AiPlayer) {
-            activePlayer = humanPlayer;
-            receivingBoard = AiBoard;
+
+        return attack;
+    }
+
+    // Performs the AI's turn
+    function AiTurn() {
+        // Get random coords
+        let coords = AiPlayer.randomCoords();
+        let usedCoords = AiPlayer.usedCoords;
+        let turn = AiPlayer.randomTurn(usedCoords, coords);
+        let aiInput = turn.coords;
+        let aiAttack = humanBoard.receiveAttack(aiInput);
+
+        // Console
+        console.log('AI attack: ' + aiAttack.resultType);
+
+        // update the display
+        let aiInputString = aiInput.toString();
+        let aiCoord = aiInputString.replace(",", "-");
+        let aiCell = document.querySelector(`[data-coord="${humanBoard.owner.name}-cell-${aiCoord}"]`);
+
+        aiCell.classList.remove('open');
+        aiCell.classList.add(aiAttack.resultType);
+
+        // If a ship was just sunk,
+        if (aiAttack.resultType === 'sink') {
+            // Check if shipsLeft on receiving board
+            let remainingShips = humanBoard.shipsLeft();
+            if (remainingShips === 0) {
+                // If the receiving board has no ships left, the active player wins
+                winner = AiPlayer;
+                gameOver = true;
+                return gameOver;
+            }
         }
-        return gameOver;
-    };
 
+        return {aiAttack, aiInput};
+    }
 
-    // Play the game
-    function playGame() {
-        while (!gameOver) {
-            // Play rounds of the game
-            playRound();
+    // play a round
+    function playRound(input) {
+        let humanTurnRes = humanTurn(input);
+
+        let winner = checkWinner();
+        if (winner) {
+            gameOver = true;
+            return { winner, gameOver }
         }
 
-        // Once gameOver is true
-        // If winner is null, declare a draw
-        if (winner == null) {
-            winner = 'Draw'
-        };
-        // DEBUG CONSOLE LOGS
-        console.log('The winner is ' + winner.name)
-        return winner
+        let aiTurnRes = setTimeout(AiTurn, 500);
 
+        winner = checkWinner();
+
+        if (winner) {
+            gameOver = true;
+            return { winner, gameOver }
+        }
+
+        console.log('No winner yet, have another turn');
+
+        return {humanTurnRes, aiTurnRes}
+
+    }
+
+
+    // Check for a winner
+    function checkWinner() {
+        if (!gameOver) { return }
+        else if (gameOver) {
+            // Once gameOver is true
+            // If winner is null, declare a draw
+            if (winner == null) {
+                winner = 'Draw'
+            };
+            // DEBUG CONSOLE LOGS
+            console.log('The winner is ' + winner.name)
+            return winner
+        }
     }
     
     return {
@@ -122,7 +152,8 @@ function Game(name) {
         receivingBoard: receivingBoard,
         populateAiBoard: populateAiBoard,
         populateHumanBoard: populateHumanBoard,
-        playGame: playGame,
+        checkWinner: checkWinner,
+        playRound: playRound,
     }
 }
 

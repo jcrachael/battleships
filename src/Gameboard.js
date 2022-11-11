@@ -94,8 +94,8 @@ export default function Gameboard(owner) {
                 
                 let cell = document.querySelector(`[data-coord="${id}"]`);
                 
-                cell.classList.remove('open');
-                cell.classList.add('cell-ship');
+                cell.classList.add('ship');
+                cell.classList.add('open');
             }
 
             return board;
@@ -109,6 +109,9 @@ export default function Gameboard(owner) {
             let xCoord = coords[1];
             let yCoord = coords[0];
             let square = board[yCoord][xCoord];
+
+            console.log('Cell being hit: ' + square);
+
             if (typeof square == 'string') {
                 result = "You've already fired here!";
                 resultType = 'bounce';
@@ -116,6 +119,10 @@ export default function Gameboard(owner) {
                 result = 'Direct hit!';
                 resultType = 'hit';
                 let ship = board[yCoord][xCoord];
+
+                console.log('A ship was hit:');
+                console.log(ship);
+
                 board[yCoord][xCoord] = 'hit';
                 ship.hit();
                 ship.isSunk();

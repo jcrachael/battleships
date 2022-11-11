@@ -16,7 +16,7 @@ function Player(name) {
 
         
         let isSubArray = isSubset(coords, usedCoords);
-        console.log(isSubArray);
+    
         // base case
         // If the coords do not match any used coords
         if (isSubArray === false) {
@@ -33,9 +33,9 @@ function Player(name) {
 
         } 
         // If the coords do match, try again
-        console.log('Coords match, finding new coord...');
+    
         coords = randomCoords();
-        console.log('New coords: ' + coords);
+
         return randomTurn(usedCoords, coords);
 
         
@@ -46,8 +46,8 @@ function Player(name) {
     // Returns true if arr1 is a subset of arr2
     function isSubset(coords,usedCoords) {
 
-        console.log('Checking if coords match...');
-        console.log('Coord: ' + coords);
+  
+        console.log('AI clicked: ' + coords);
 
         // Loop through each item in usedCoords
         let l = Object.keys(usedCoords).length;

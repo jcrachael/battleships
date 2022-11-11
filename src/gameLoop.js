@@ -19,6 +19,9 @@ function gameLoop() {
         setNameFormListener();
     };
 
+
+    
+
     // Private helper function for init() that sets event listener on the get name form
     function setNameFormListener() {
         // get submit name btn
@@ -62,7 +65,8 @@ function gameLoop() {
         submitCoords.addEventListener('click', function(e) {
             e.preventDefault();
             let aiCoords = coordsForm.getAiCoords();
-            displayController.getUserShips(aiCoords);
+            displayController.getUserShips();
+            displayController.startGame(username, aiCoords);
             
         });
     }
