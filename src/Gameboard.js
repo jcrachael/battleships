@@ -110,8 +110,6 @@ export default function Gameboard(owner) {
             let yCoord = coords[0];
             let square = board[yCoord][xCoord];
 
-            console.log('Cell being hit: ' + square);
-
             if (typeof square == 'string') {
                 result = "You've already fired here!";
                 resultType = 'bounce';

@@ -1,4 +1,5 @@
 import { Game } from "./Game";
+import { gameLoop } from "./gameLoop";
 
 function Display() {
     // initialise variables
@@ -261,8 +262,47 @@ function Display() {
         return orients;
     }
 
+    // Displays the comment to the screen
+    function displayComment() {
+        const header = document.querySelector('header');
+        const commentContainer = document.createElement('aside');
+        commentContainer.setAttribute('id', 'comment-container');
+        header.insertAdjacentElement('afterend', commentContainer);
+    }
+
+    // Updates the contents of the comment
+    function updateComment(message) {
+        const commentContainer = document.getElementById('comment-container');
+        commentContainer.innerHTML = '';
+        const comment = document.createElement('p');
+        comment.setAttribute('id', 'comment');
+        comment.innerText = message;
+        commentContainer.appendChild(comment);
+    }
+
+    // Appends new content to the end of the comment
+    function appendComment(message) {
+        const commentContainer = document.getElementById('comment-container');
+        const commentChild = document.createElement('p');
+        commentChild.innerText = message;
+        commentContainer.appendChild(commentChild);
+    }
+
+    // Appends new content to the end of the same line of comment
+    function appendInlineComment(message) {
+        const comment = document.getElementById('comment');
+        comment.innerText += ' ' + message;
+    }
+
     function startGame(name, aiCoords) {
         game = new Game(name);
+
+        // Append the comment container
+        displayComment();
+        let message = game.humanBoard.owner.name + "'s turn"
+        updateComment(message);
+        let append = 'Click a square to attack';
+        appendComment(append);
 
         // Print the boards
         printBoard(game.humanBoard);
@@ -294,34 +334,57 @@ function Display() {
         let query = '.cell-' + game.AiBoard.owner.name;
         const cells = document.querySelectorAll(query);    
         cells.forEach((cell) => {
-            cell.addEventListener('click', () => {
-                    
-                    // Remove 'open' class from this cell
-                    if (cell.classList.contains('open')) {
-                        cell.classList.remove('open');
-                    }
-                    // Get user's input
-                    let input = [];
-                    // save the input that was clicked 'Jasper-cell-2-2'
-                    let coordString = cell.getAttribute('data-coord').slice(12) // '2-2'
-                    input = coordString.split('-');
-                    currentInput = input;
-                    
-                    // DEBUG console log
-                    console.log('User clicked: ' + currentInput)
-                    
-                    // call game.playRound(currentInput);
-                    game.playRound(currentInput);
-                  
-
-                
-               
-                  
-                })
+            cell.addEventListener('click', handleEvent)
             })
-
         // Once gameOver is true, end and return winner
+        
         return game.winner;
+    }
+
+    function handleEvent() {
+        // Remove 'open' class from this cell
+        if (this.classList.contains('open')) {
+            this.classList.remove('open');
+        }
+        // Get user's input
+        let input = [];
+        // save the input that was clicked 'Jasper-cell-2-2'
+        let coordString = this.getAttribute('data-coord').slice(12) // '2-2'
+        input = coordString.split('-');
+        currentInput = input;
+              
+        // call game.playRound(currentInput);
+        game.playRound(currentInput);
+    }
+
+    function endGame() {
+        const aside = document.querySelector('aside');
+        let button = document.createElement('button');
+        button.innerText = 'Play again';
+        button.addEventListener('click', function() {
+            playAgain();
+        })
+        aside.appendChild(button);
+
+        let query = '.cell-Jasper';
+        const cells = document.querySelectorAll(query);    
+        cells.forEach((cell) => {
+            if (cell.classList.contains('open')) {
+                cell.classList.remove('open');
+            }
+            cell.classList.add('inactive-cell');
+            cell.removeEventListener('click', handleEvent);
+        });
+
+    }
+
+    function playAgain() {
+        let game = new gameLoop();
+        const container = document.getElementById('container');
+        const aside = document.querySelector('aside');
+        container.removeChild(aside);
+        game.username = username;
+        game.displayCoordsForm();
     }
 
     return {
@@ -335,6 +398,10 @@ function Display() {
         printBoard: printBoard,
         getInput: getInput,
         getUserShips: getUserShips,
+        updateComment: updateComment,
+        appendComment: appendComment,
+        appendInlineComment: appendInlineComment,
+        endGame: endGame,
     };
 
 }

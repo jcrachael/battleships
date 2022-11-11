@@ -1,6 +1,7 @@
 import { Player, AiPlayer } from "./Player";
+import { Display } from "./Display";
 import Gameboard from "./Gameboard";
-
+const display = new Display();
 function Game(name) {
     // Initialise a new Player for the user
     let humanPlayer = new Player(name);
@@ -36,7 +37,9 @@ function Game(name) {
     }
 
     // Performs the human's turn
-    function humanTurn(input) {
+    function humanTurn(input) {      
+        let message = humanPlayer.name + '\'s turn...';
+        display.updateComment(message);
         // human's turn
         let usedCoords = humanPlayer.usedCoords;
         let attack = AiBoard.receiveAttack(input);
@@ -50,16 +53,26 @@ function Game(name) {
         cell.classList.remove('open');
         cell.classList.add(attack.resultType);
 
+        display.appendInlineComment(attack.result);
+
         // If a ship was just sunk,
         if (attack.resultType === 'sink') {
-            // Check if shipsLeft on receiving board
-            let remainingShips = AiBoard.shipsLeft();
-            if (remainingShips === 0) {
-                // If the receiving board has no ships left, the active player wins
-                winner = humanPlayer;
-                gameOver = true;
-                return gameOver;
-            }
+            let message = 'Jasper says, "You sunk my battleship."'
+            display.updateComment(message);
+            setTimeout(function(){
+                console.log('timeout')
+            }, 5000);
+                // Check if shipsLeft on receiving board
+                let remainingShips = AiBoard.shipsLeft();
+                if (remainingShips === 0) {
+                    // If the receiving board has no ships left, the active player wins
+                    winner = humanPlayer;
+                    gameOver = true;
+                    return gameOver;
+                }
+
+            
+            
         }
 
         return attack;
@@ -67,6 +80,9 @@ function Game(name) {
 
     // Performs the AI's turn
     function AiTurn() {
+
+        let message = 'Jasper\'s turn...';
+        display.updateComment(message);
         // Get random coords
         let coords = AiPlayer.randomCoords();
         let usedCoords = AiPlayer.usedCoords;
@@ -74,28 +90,35 @@ function Game(name) {
         let aiInput = turn.coords;
         let aiAttack = humanBoard.receiveAttack(aiInput);
 
-        // Console
-        console.log('AI attack: ' + aiAttack.resultType);
+        setTimeout(function() {
 
-        // update the display
-        let aiInputString = aiInput.toString();
-        let aiCoord = aiInputString.replace(",", "-");
-        let aiCell = document.querySelector(`[data-coord="${humanBoard.owner.name}-cell-${aiCoord}"]`);
+            // update the display
+            let aiInputString = aiInput.toString();
+            let aiCoord = aiInputString.replace(",", "-");
+            let aiCell = document.querySelector(`[data-coord="${humanBoard.owner.name}-cell-${aiCoord}"]`);
 
-        aiCell.classList.remove('open');
-        aiCell.classList.add(aiAttack.resultType);
-
-        // If a ship was just sunk,
-        if (aiAttack.resultType === 'sink') {
-            // Check if shipsLeft on receiving board
-            let remainingShips = humanBoard.shipsLeft();
-            if (remainingShips === 0) {
-                // If the receiving board has no ships left, the active player wins
-                winner = AiPlayer;
-                gameOver = true;
-                return gameOver;
+            aiCell.classList.remove('open');
+            aiCell.classList.add(aiAttack.resultType);
+            display.appendInlineComment(aiAttack.result);
+            // If a ship was just sunk,
+            if (aiAttack.resultType === 'sink') {
+                let message = 'Jasper says, "I shot who in the what now?"'
+                display.updateComment(message);
+                setTimeout(function(){
+                    // Check if shipsLeft on receiving board
+                    let remainingShips = humanBoard.shipsLeft();
+                    if (remainingShips === 0) {
+                        // If the receiving board has no ships left, the active player wins
+                        winner = AiPlayer;
+                        gameOver = true;
+                        return gameOver;
+                    }
+                }, 3000)
+                
             }
-        }
+        }, 500)
+
+        
 
         return {aiAttack, aiInput};
     }
@@ -107,22 +130,28 @@ function Game(name) {
         let winner = checkWinner();
         if (winner) {
             gameOver = true;
+            let msg = humanPlayer.name + ' wins!';
+            display.updateComment(msg);
+            let message = 'Jasper says, "Oh, well. Easy come, easy go."'
+            display.appendComment(message);
+            display.endGame();
             return { winner, gameOver }
         }
 
-        let aiTurnRes = setTimeout(AiTurn, 500);
+        let aiTurnRes = setTimeout(AiTurn, 1000);
 
         winner = checkWinner();
 
         if (winner) {
             gameOver = true;
+            let msg = 'Jasper wins!';
+            display.updateComment(msg);
+            let message = 'Jasper says, "That\'s a paddlin\'."'
+            display.appendComment(message);
+            display.endGame();
             return { winner, gameOver }
         }
-
-        console.log('No winner yet, have another turn');
-
         return {humanTurnRes, aiTurnRes}
-
     }
 
 

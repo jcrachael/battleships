@@ -19,9 +19,6 @@ function gameLoop() {
         setNameFormListener();
     };
 
-
-    
-
     // Private helper function for init() that sets event listener on the get name form
     function setNameFormListener() {
         // get submit name btn
@@ -38,16 +35,21 @@ function gameLoop() {
             } else {
                 username = input.value;
             }
-            // clear main
-            const main = document.getElementById('main');
-            main.innerHTML = '';
+            
             // set the username
             displayController.setUsername(username);
-            // display the coords form
-            main.appendChild(coordsForm.form);
-            // set event listener for coords form submit button
-            setCoordFormListeners();
+            displayCoordsForm();
         });
+    }
+
+    function displayCoordsForm() {
+        // clear main
+        const main = document.getElementById('main');
+        main.innerHTML = '';
+        // display the coords form
+        main.appendChild(coordsForm.form);
+        // set event listener for coords form submit button
+        setCoordFormListeners();
     }
 
     // Private helper function for setNameFormListener() that sets event listeners on the coords form
@@ -74,6 +76,7 @@ function gameLoop() {
 
     return {
         init: init,
+        displayCoordsForm: displayCoordsForm,
     }
 
 }
