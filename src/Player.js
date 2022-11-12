@@ -10,7 +10,7 @@ function Player(name) {
         return coords;
     }
 
-  
+
 
     function randomTurn(usedCoords, coords) {
 
@@ -37,17 +37,11 @@ function Player(name) {
         coords = randomCoords();
 
         return randomTurn(usedCoords, coords);
-
-        
-
         
     }
 
     // Returns true if arr1 is a subset of arr2
     function isSubset(coords,usedCoords) {
-
-  
-        console.log('AI clicked: ' + coords);
 
         // Loop through each item in usedCoords
         let l = Object.keys(usedCoords).length;
@@ -69,6 +63,7 @@ function Player(name) {
         usedCoords: usedCoords,
         randomCoords: randomCoords,
         randomTurn: randomTurn,
+        isSubset: isSubset,
     }
 }
 

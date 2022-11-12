@@ -118,9 +118,6 @@ export default function Gameboard(owner) {
                 resultType = 'hit';
                 let ship = board[yCoord][xCoord];
 
-                console.log('A ship was hit:');
-                console.log(ship);
-
                 board[yCoord][xCoord] = 'hit';
                 ship.hit();
                 ship.isSunk();
