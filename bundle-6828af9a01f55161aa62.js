@@ -762,8 +762,8 @@ function Display() {
 
             if (value == '') {
                 let message = 'Error: not all coordinates provided';
-                console.log(message);
-                return;
+               
+                return message;
             }
         }
      
@@ -788,7 +788,7 @@ function Display() {
 
             if (value == '') {
                 let message = 'Error: not all orientations provided';
-                console.log(message);
+               
                 return message;
             }
         }
@@ -1062,7 +1062,7 @@ function Game(name) {
         // If the coords do match, they are invalid
         // get new smart coords
         let newCoords = newSmartCoords(coords, adjacents, usedCoords);
-        console.log('New coords: ' + newCoords);
+
         // Try to validate again
         return checkSmartTurn(usedCoords, newCoords, adjacents);
         
@@ -1076,6 +1076,8 @@ function Game(name) {
         // store the invalid coords in invalidCoords
         invalidCoords[l] = oldCoords;
 
+        console.log(invalidCoords);
+
         // get new random coords from the adjacents array
         let newCoords = smartCoords(adjacents);
 
@@ -1085,6 +1087,7 @@ function Game(name) {
         // If the new coords are not in the invalidCoords, we can use them
         if (isNewSub === false) {
             // We can use these coords
+            invalidCoords = {};
             return newCoords
         } 
 
@@ -1092,6 +1095,7 @@ function Game(name) {
         // no valid coords in adjacents, so return random coords
         if (l == adjacents.length) {
             // Get random coords
+            invalidCoords = {};
             newCoords = _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer.randomCoords();
             return newCoords 
         } 
@@ -1204,19 +1208,23 @@ function Game(name) {
         let prevObjLength = Object.keys(prevAIturn).length;
         let prevPrevObjLength = Object.keys(prevPrevAIturn).length;
 
+
+        // DEBUG console log
+        console.log('Start of AI\'s move');
         
 
         // If it's the AI's second or later turn
         if (prevObjLength > 0) {
-
+            
+            // DEBUG console log
             console.log('Last AI move was a ' + prevAIturn.attack.resultType);
             
             // Get the data from the prevAiTurn
             let prevResult = prevAIturn.attack.resultType;
             let prevCoord = prevAIturn.coords;
             
-            // If it's the AI's third or later turn
-            if (prevPrevObjLength > 0) {
+            // If it's the AI's third or later turn and the last attack was a miss
+            if (prevPrevObjLength > 0 && prevAIturn.attack.resultType == 'miss') {
                 console.log('The turn before that was a: ' + prevPrevAIturn.attack.resultType);
 
                 let prevPrevResult = prevPrevAIturn.attack.resultType;
@@ -1238,16 +1246,13 @@ function Game(name) {
                         let second = adjacents[1];
                         let third = adjacents[2];
                         let fourth = adjacents[3];
-                        let newAdjList = [first, second, third, fourth];
-                        console.log('New list: ')
-                        console.log(newAdjList);
-                        
+                        let newAdjList = [first, second, third, fourth];                       
                         adjacents = newAdjList;
                     }
                     
 
                     console.log(prevPrevCoord);
-                    console.log('New adjacents: ' + adjacents);
+                    console.log('New adjacents: ');
                     console.log(adjacents)
 
                     // Set the coords to a random index in adjacents
@@ -1260,59 +1265,78 @@ function Game(name) {
                     console.log(turn);
 
                     // Save the aiAttack 
-                    let l = Object.keys(usedCoords).length;
-                    usedCoords[l] = turn.coords;
-                    aiAttack = humanBoard.receiveAttack(turn.coords);
                     aiInput = turn.coords;
+                    aiAttack = humanBoard.receiveAttack(aiInput);
 
+                    
+                    console.log('BEFORE UPDATING:');
+                    console.log('PrevPrevAIturn: ');
+                    console.log(prevPrevAIturn);
+                    console.log('Previous AI turn:');
+                    console.log(prevAIturn);
+                    
                     // Save the old prevAIturn as prevPrevAITurn
                     prevPrevAIturn['attack'] = prevAIturn['attack'];
                     prevPrevAIturn['coords'] = prevAIturn['coords'];
 
-                    console.log('PrevPrevAIturn: ');
-                    console.log(prevPrevAIturn);
-
                     // Save the current attack as the new prevAIturn
                     prevAIturn['attack'] = aiAttack;
-                    prevAIturn['coords'] = aiInput;
+                    prevAIturn['coords'] = aiAttack.coords;
 
+
+                    console.log('AFTER UPDATING:');
+                    console.log('PrevPrevAIturn: ');
+                    console.log(prevPrevAIturn);
                     console.log('Previous AI turn:');
                     console.log(prevAIturn);
+                    
+                } else {
+                    // Get random coords
+                    coords = _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer.randomCoords();
+                    // Get used coords
+                    usedCoords = _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer.usedCoords;
+                    // Validate random coords against used coords
+                    turn = _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer.randomTurn(usedCoords, coords);
+                    // Save the validated coords as aiInput
+                    aiInput = turn.coords;
+                    // Perform the attack 
+                    aiAttack = humanBoard.receiveAttack(aiInput);
+                    // The current attack is 'aiAttack'
+                    // The previous attack is 'prevAIturn'
+                    // The turn before that is 'prevPrevAIturn'
+                    // Save the old prevAIturn as prevPrevAITurn
+                    prevPrevAIturn['attack'] = prevAIturn['attack'];
+                    prevPrevAIturn['coords'] = prevAIturn['coords'];
+                    // Save the current attack as the new prevAIturn
+                    prevAIturn['attack'] = aiAttack;
+                    prevAIturn['coords'] = aiAttack.coords;
                 }
-            }
-                
-
-            // If the last turn was a 'hit'
-            if (prevResult == 'hit') {
+            // Else if the last turn was a 'hit'
+            } else if (prevResult == 'hit') {
                 // Get the adjacency list for the last turn
                 adjacents = getAdjacents(prevCoord);
-                
-                // Set the coords to a random index in adjacents
                 usedCoords = _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer.usedCoords;
+                // Set the coords to a random index in adjacents
+                
                 coords = smartCoords(adjacents);
                 // check the turn is valid
                 turn = checkSmartTurn(usedCoords, coords, adjacents);
                 // Save the aiAttack 
-                let l = Object.keys(usedCoords).length;
-                usedCoords[l] = turn.coords;
-                aiAttack = humanBoard.receiveAttack(turn.coords);
                 aiInput = turn.coords;
+                aiAttack = humanBoard.receiveAttack(aiInput);
+                
 
                 // Save the old prevAIturn as prevPrevAITurn
                 prevPrevAIturn['attack'] = prevAIturn['attack'];
                 prevPrevAIturn['coords'] = prevAIturn['coords'];
 
-                console.log('PrevPrevAIturn: ');
-                console.log(prevPrevAIturn);
 
                 // Save the current attack as the new prevAIturn
                 prevAIturn['attack'] = aiAttack;
-                prevAIturn['coords'] = aiInput;
+                prevAIturn['coords'] = aiAttack.coords;
 
-                console.log('Previous AI turn:');
-                console.log(prevAIturn);
 
-            // If the last AI turn was not a hit, get random coords
+            // Else if the last AI turn was not a hit, get random coords
             } else {
                 // Get random coords
                 coords = _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer.randomCoords();
@@ -1324,24 +1348,21 @@ function Game(name) {
                 aiInput = turn.coords;
                 // Perform the attack 
                 aiAttack = humanBoard.receiveAttack(aiInput);
-
+                // The current attack is 'aiAttack'
+                // The previous attack is 'prevAIturn'
+                // The turn before that is 'prevPrevAIturn'
                 // Save the old prevAIturn as prevPrevAITurn
                 prevPrevAIturn['attack'] = prevAIturn['attack'];
                 prevPrevAIturn['coords'] = prevAIturn['coords'];
-
-                console.log('PrevPrevAIturn: ');
-                console.log(prevPrevAIturn);
-
                 // Save the current attack as the new prevAIturn
                 prevAIturn['attack'] = aiAttack;
-                prevAIturn['coords'] = aiInput;
-
-                console.log('Previous AI turn:');
-                console.log(prevAIturn);
+                prevAIturn['coords'] = aiAttack.coords;
+                
             }
-            
         // If it is the AI's first turn, get random coords
         } else {
+            
+            console.log('This is the AI\'s first turn');
             // Get random coords
             coords = _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer.randomCoords();
             // Get the AI's used coords
@@ -1352,9 +1373,13 @@ function Game(name) {
             aiInput = turn.coords;
             // Perform the AI attack on the human board 
             aiAttack = humanBoard.receiveAttack(aiInput);
+
+            // DEBUG console log
+            console.log('This turn was a: ' + aiAttack.resultType);
+
             // Store this attack as the prevAIturn
             prevAIturn['attack'] = aiAttack;
-            prevAIturn['coords'] = aiInput;
+            prevAIturn['coords'] = aiAttack.coords;
         }
         
 
@@ -1614,7 +1639,7 @@ function Gameboard(owner) {
                 resultType = 'miss';
                 board[yCoord][xCoord] = 'miss';
             };
-            return {board, result, resultType};
+            return {board, result, resultType, coords};
         },
 
         shipsLeft() {
@@ -3392,4 +3417,4 @@ game.init();
 /******/ var __webpack_exports__ = (__webpack_exec__(138));
 /******/ }
 ]);
-//# sourceMappingURL=bundle-d65c86794e859019ecad.js.map
+//# sourceMappingURL=bundle-6828af9a01f55161aa62.js.map
