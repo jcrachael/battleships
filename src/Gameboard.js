@@ -131,7 +131,7 @@ export default function Gameboard(owner) {
                 resultType = 'miss';
                 board[yCoord][xCoord] = 'miss';
             };
-            return {board, result, resultType};
+            return {board, result, resultType, coords};
         },
 
         shipsLeft() {

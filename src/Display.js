@@ -218,8 +218,8 @@ function Display() {
 
             if (value == '') {
                 let message = 'Error: not all coordinates provided';
-                console.log(message);
-                return;
+               
+                return message;
             }
         }
      
@@ -244,7 +244,7 @@ function Display() {
 
             if (value == '') {
                 let message = 'Error: not all orientations provided';
-                console.log(message);
+               
                 return message;
             }
         }
