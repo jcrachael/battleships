@@ -31,12 +31,14 @@ function Player(name) {
 
             return {coords, usedCoords}
 
-        } 
-        // If the coords do match, try again
-    
-        coords = randomCoords();
+        } else {
+            // If the coords do match, try again
+        
+            coords = randomCoords();
 
-        return randomTurn(usedCoords, coords);
+            return randomTurn(usedCoords, coords);
+        }
+        
         
     }
 

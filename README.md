@@ -17,13 +17,13 @@ Test-driven-development powered by [Jest](https://jestjs.io/).
 
 ## Todos
 
-1. Fix winner screen bug where the 'human won' screen displays when the AI wins
-2. Fiugre out logic for AI to prefer open squares adjacents to 'hit' squares that are not already part of a sunk ship
-3. Design UI and implement
+1. Fix AI turn bug where some turns lead to an infinite loop
+2. Logic for AI to prefer open squares adjacents to 'hit' squares that are not already part of a sunk ship
+3. Finesse CSS styles
 4. Jasper sound bites?
 
 
 
 ---
 
-Last modified: 13 November 2022
+Last modified: 14 November 2022

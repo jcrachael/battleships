@@ -146,13 +146,13 @@ function Game(name) {
     }
 
     function getAdjacents(prevCoord) {
+
+        console.log('Getting adjacents for...');
+        console.log(prevCoord);
+
         let row = prevCoord[0];
         let col = prevCoord[1];
         let adjacents = [];
-        let topLeft = [0,0];
-        let topRight = [0,9];
-        let bottomLeft = [9,0];
-        let bottomRight = [9,9];
         let topRow = {
             0: [0,1],
             1: [0,2],
@@ -194,13 +194,13 @@ function Game(name) {
             7: [8,9]
         };
         // Get the adjacent squares
-        if (prevCoord == topLeft) {
+        if (row == 0 && col == 0) {
             adjacents = [[0,1], [1,0]];
-        } else if (prevCoord == topRight) {
+        } else if (row == 0 && col == 9) {
             adjacents = [[0,8], [1,9]];
-        } else if (prevCoord == bottomLeft) {
+        } else if (row == 9 && col == 0) {
             adjacents = [[8,0], [9,1]];
-        } else if (prevCoord == bottomRight) {
+        } else if (row == 9 && col == 9) {
             adjacents = [[8,9], [9,8]]
         } else if (AiPlayer.isSubset(prevCoord, topRow)) {
             adjacents = [[row, col - 1], [row, col + 1], [row + 1, col]]
@@ -437,7 +437,7 @@ function Game(name) {
                         gameOver = true;
                         return gameOver;
                     }
-                }, 3000)
+                }, 500)
                 
             }
         }, 500)
@@ -456,13 +456,19 @@ function Game(name) {
         let humanTurnRes = humanTurn(input);
 
         let winner = checkWinner();
-        if (winner) {
+        if (winner == humanPlayer) {
             gameOver = true;
-            let msg = humanPlayer.name + ' wins!';
-            display.updateComment(msg);
-            let message = 'Jasper says, "Oh, well. Easy come, easy go."'
-            display.appendComment(message);
-            display.endGame();
+
+            let name = winner.name;
+            display.endGame(name, humanPlayer);
+
+            return { winner, gameOver }
+       
+        } else if (winner == AiPlayer) {
+            gameOver = true;
+            let name = 'Jasper';
+ 
+            display.endGame(name, humanPlayer);
             return { winner, gameOver }
         }
 
@@ -470,18 +476,25 @@ function Game(name) {
 
         winner = checkWinner();
 
-        if (winner) {
+        if (winner == humanPlayer) {
             gameOver = true;
-            let msg = 'Jasper wins!';
-            display.updateComment(msg);
-            let message = 'Jasper says, "That\'s a paddlin\'."'
-            display.appendComment(message);
-            display.endGame();
+
+            let name = winner.name;
+            display.endGame(name, humanPlayer);
+
+            return { winner, gameOver }
+
+        } else if (winner == AiPlayer) {
+            gameOver = true;
+            let name = 'Jasper';
+ 
+            display.endGame(name, humanPlayer);
+
             return { winner, gameOver }
         }
+
         return {humanTurnRes, aiTurnRes}
     }
-
 
     // Check for a winner
     function checkWinner() {

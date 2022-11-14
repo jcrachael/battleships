@@ -14,6 +14,7 @@ function getNameForm() {
         // make form
         const form = document.createElement('form');
         form.setAttribute('id', 'get-username-form');
+        form.setAttribute('autocomplete', 'off');
         container.appendChild(form);
 
         // make legend
@@ -25,12 +26,6 @@ function getNameForm() {
         const formControl = document.createElement('div');
         formControl.classList.add('form-control');
         form.appendChild(formControl);
-
-        // make label
-        const label = document.createElement('label');
-        label.setAttribute('for', 'username');
-        label.innerText = 'Your name:';
-        formControl.appendChild(label);
 
         // make input type text
         const input = document.createElement('input');

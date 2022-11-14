@@ -1,5 +1,7 @@
 import { Game } from "./Game";
 import { gameLoop } from "./gameLoop";
+import jasperwin from './assets/paddlin.png';
+import userwin from './assets/jasper.png';
 
 function Display() {
     // initialise variables
@@ -296,13 +298,13 @@ function Display() {
 
     function startGame(name, aiCoords) {
         game = new Game(name);
-
+        
         // Append the comment container
         displayComment();
         let message = game.humanBoard.owner.name + "'s turn"
         updateComment(message);
         let append = 'Click a square to attack';
-        appendComment(append);
+        updateComment(append);
 
         // Print the boards
         printBoard(game.humanBoard);
@@ -337,7 +339,6 @@ function Display() {
             cell.addEventListener('click', handleEvent)
             })
         // Once gameOver is true, end and return winner
-        
         return game.winner;
     }
 
@@ -357,34 +358,58 @@ function Display() {
         game.playRound(currentInput);
     }
 
-    function endGame() {
+    function endGame(winner, humanPlayer) {
+        console.log('The winner is' + winner);
+        console.log(winner);
+
         const aside = document.querySelector('aside');
+        aside.innerHTML = '';
+        main.innerHTML = '';
+        let msg;
+        let message;
+        let img = document.createElement('img');
+
+        if (winner == 'Jasper') {
+            msg = 'Jasper wins!';
+            message = 'Jasper says, "That\'s a paddlin\'."';
+            img.src = jasperwin;
+        
+        } else {
+            msg = winner + ' wins!';
+            message = 'Jasper says, "Oh, well. Easy come, easy go.'
+            img.src = userwin;
+        }
+
+        let p1 = document.createElement('p');
+        p1.innerText = msg;
+
+        let p2 = document.createElement('p');
+        p2.innerText = message;
+
+
+
         let button = document.createElement('button');
         button.innerText = 'Play again';
         button.addEventListener('click', function() {
-            playAgain();
-        })
-        aside.appendChild(button);
-
-        let query = '.cell-Jasper';
-        const cells = document.querySelectorAll(query);    
-        cells.forEach((cell) => {
-            if (cell.classList.contains('open')) {
-                cell.classList.remove('open');
-            }
-            cell.classList.add('inactive-cell');
-            cell.removeEventListener('click', handleEvent);
+            playAgain(humanPlayer.name);
         });
+
+        aside.appendChild(p1);
+        aside.appendChild(img);
+        aside.appendChild(p2);
+        aside.appendChild(button);
 
     }
 
-    function playAgain() {
-        let game = new gameLoop();
+    function playAgain(name) {
+        let gameloop = new gameLoop();
         const container = document.getElementById('container');
         const aside = document.querySelector('aside');
         container.removeChild(aside);
-        game.username = username;
-        game.displayCoordsForm();
+        setUsername(name);
+        gameloop.setUserName(name);
+        gameloop.displayCoordsForm();
+
     }
 
     return {

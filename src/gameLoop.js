@@ -19,6 +19,11 @@ function gameLoop() {
         setNameFormListener();
     };
 
+    function setUserName(name) {
+        username = name;
+        return username;
+    }
+
     // Private helper function for init() that sets event listener on the get name form
     function setNameFormListener() {
         // get submit name btn
@@ -44,6 +49,7 @@ function gameLoop() {
 
     function displayCoordsForm() {
         // clear main
+        
         const main = document.getElementById('main');
         main.innerHTML = '';
         // display the coords form
@@ -62,6 +68,8 @@ function gameLoop() {
         coordsForm.validateSubmarine();
         coordsForm.validatePatrolBoat();
 
+        
+
         // get coords submit
         const submitCoords = document.getElementById('submit-coords');
         submitCoords.addEventListener('click', function(e) {
@@ -77,6 +85,7 @@ function gameLoop() {
     return {
         init: init,
         displayCoordsForm: displayCoordsForm,
+        setUserName: setUserName,
     }
 
 }
