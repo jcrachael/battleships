@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* GLOBALS */\r\n\r\n* {\r\n    margin: 0; padding: 0;\r\n    font-family: 'Roboto', Helvetica, Arial, sans-serif;\r\n}\r\n\r\nbody {\r\n\r\n    text-align: center;\r\n}\r\n\r\n\r\n/* HEADER */\r\n\r\nheader {\r\n    padding: 2rem;\r\n}\r\n\r\n\r\n/* ALERT */\r\n\r\n.alert {\r\n    font-size: 0.9rem;\r\n    position: absolute;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    border-radius: 0.5rem;\r\n    top: 60px;\r\n    left: calc(50% - 270px);\r\n    z-index: 1;\r\n    width: 600px;\r\n    padding: 5px 20px;\r\n    border: 1px #a1261e solid;\r\n    box-sizing: border-box;\r\n    background-color: #f56a60;\r\n    color: white;\r\n    margin: 15px auto 0px auto;\r\n    opacity: 0.9;\r\n    transition: opacity 0.6s;\r\n}\r\n\r\n.close-alert {\r\n    margin-left: 15px;\r\n    color: white;\r\n    float: right;\r\n\r\n    line-height: 1.7rem;\r\n    cursor: pointer;\r\n    transition: 0.3s;\r\n    font-weight: 300;\r\n}\r\n\r\n.close-alert:hover {\r\n    color: black;\r\n}\r\n\r\n.hidden {\r\n    opacity: 0;\r\n}\r\n\r\n/* MAIN */\r\n\r\nmain {\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\r\n    margin: 0 auto;\r\n}\r\n\r\n/* FORMS */\r\n\r\n.form-container {\r\n    width: 80%;\r\n}\r\n\r\nform {\r\n    padding: 20px;\r\n}\r\n\r\nlegend {\r\n    padding: 0px 0px 40px 0px;\r\n}\r\n\r\n#get-coords-form > .form-control > * {\r\n    font-size: 0.9rem;\r\n    justify-content: space-evenly;\r\n}\r\n\r\n#get-coords-form > .form-control > label {\r\n    font-size: 1rem;\r\n    font-weight: bold;\r\n}\r\n\r\n#get-coords-form > .form-control > input[type=\"text\"] {\r\n    width: 40px;\r\n    text-align: center;\r\n    \r\n}\r\n\r\n.form-control {\r\n    padding: 10px 0px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.form-control > * {\r\n    padding: 0.7rem;\r\n    font-size: 1rem;\r\n    border-radius: 2rem;\r\n}\r\n\r\nlabel {\r\n    text-align: end;\r\n}\r\n\r\nlabel[for=\"username\"] {\r\n\r\n    text-align: center;\r\n    width: 100px;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n    border: 1px lightgray solid;\r\n    \r\n}\r\n\r\ninput[type=\"radio\"] {\r\n    cursor: pointer;\r\n}\r\n\r\n.radio-container {\r\n    display: grid;\r\n    grid-template-columns: 1rem auto;\r\n    grid-template-rows: auto auto;\r\n    gap: 0.5rem;\r\n\r\n}\r\n\r\n.radio-container > * {\r\n    margin: 0;\r\n    padding: 0;\r\n   \r\n}\r\n\r\n.radio-container > label {\r\n    width: 80px;\r\n    text-align: left;\r\n \r\n    \r\n}\r\n\r\ninput[type=\"submit\"] {\r\n    margin-left: 20px;\r\n    background-color: #7CB342;\r\n    width: 90px;\r\n    color: #fff;\r\n    font-size: 0.9rem;\r\n    font-weight: bold;\r\n    letter-spacing: 1px;\r\n    text-transform: uppercase;\r\n    border: none;\r\n    cursor: pointer;\r\n    transition: 0.2s ease;\r\n    -webkit-transition: 0.2s ease;\r\n}\r\n\r\ninput[type=\"submit\"]:hover, input[type=\"submit\"]:active {\r\n    background-color: #558B2F;\r\n}\r\n\r\n#submit-coords {\r\n    margin-top: 20px;\r\n}\r\n\r\n.error {\r\n    z-index: 1;\r\n    padding: 0;\r\n    font-size: 0.7rem;\r\n    color: white;\r\n    background-color: #f33f63;\r\n    border-radius: 0 0 5px 5px;\r\n    box-sizing: border-box;\r\n    \r\n}\r\n\r\n.error.green {\r\n    background-color: #7CB342;\r\n    cursor: pointer;\r\n}\r\n\r\n.error.green:hover {\r\n    background-color: #558B2F;\r\n    transition: 0.2s;\r\n}\r\n\r\n.error.green.inactive {\r\n    cursor: default;\r\n}\r\n\r\n.error.green.inactive:hover {\r\n    background-color: #7CB342;\r\n}\r\n\r\n.disabled {\r\n    font-style: italic;\r\n    opacity: 0.7;\r\n}\r\n\r\n.error.active {\r\n    font-size: 0.7rem;\r\n    margin-top: -20px;\r\n    width: 250px;\r\n    padding: 0.3rem 0.5rem 0.2rem 0.5rem;\r\n    \r\n}\r\n\r\n.invisible {\r\n    display: none !important;\r\n}\r\n\r\n/* ASIDE */\r\n\r\naside {\r\n    height: 6rem;\r\n    margin-bottom: 2rem;\r\n}\r\n\r\naside > p {\r\n    padding: 0.5rem 0rem;\r\n}\r\n\r\naside > button {\r\n\r\n    background-color: #7CB342;\r\n    color: #fff;\r\n    margin: 10px 0px 20px 0px;\r\n    padding: 0.5rem 0.8rem;\r\n    border-radius: 20px;\r\n    font-size: 0.9rem;\r\n    font-weight: bold;\r\n    letter-spacing: 1px;\r\n    text-transform: uppercase;\r\n    border: none;\r\n    cursor: pointer;\r\n    transition: 0.2s ease;\r\n    -webkit-transition: 0.2s ease;\r\n}\r\n\r\naside > button:hover, aside > button:active {\r\n    background-color: #558B2F;\r\n}\r\n\r\n/* BOARDS */\r\n\r\n.board-header {\r\n    font-weight: bold;\r\n    font-size: 1.2rem;\r\n}\r\n\r\n.board-container {\r\n    height: 500px;\r\n    width: 500px;\r\n    border: 1px black solid;\r\n    display: grid;\r\n    grid-template-columns: repeat(10, auto);\r\n    grid-template-rows: repeat(10, auto);\r\n    margin: 25px;\r\n\r\n}\r\n\r\n#board-Jasper {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n/* CELLS */\r\n\r\n.cell {\r\n    border: 1px black solid;\r\n    box-sizing: border-box;\r\n    height: 50px;\r\n    width: 50px;\r\n    display: grid;\r\n    align-items: center;\r\n    font-size: 0.9rem;\r\n    background-color: #0D47A1;\r\n}\r\n\r\n#board-jasper .cell.open:hover, #board-jasper .cell.ship.open:hover {\r\n    background-color: #82B1FF;\r\n    cursor: pointer;\r\n}\r\n\r\n#board-human .ship {\r\n    background-color: #ffda33;\r\n}\r\n\r\n\r\n\r\n.miss {\r\n    background-color: #80c045;\r\n}\r\n\r\n\r\n\r\n.hit {\r\n    background-color: #F44336 !important;\r\n}\r\n\r\n\r\n\r\n.sink {\r\n    background-color: #F44336 !important;\r\n}\r\n\r\n.inactive-cell {\r\n    cursor: default;\r\n}\r\n\r\n\r\n/* FOOTER */\r\n\r\nfooter {\r\n    position: fixed;\r\n \r\n    bottom: 0;\r\n    font-size: 10pt;\r\n    width: 100%;\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"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","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');\r\n\r\n/* GLOBALS */\r\n\r\n* {\r\n    margin: 0; padding: 0;\r\n    font-family: 'Roboto', Helvetica, Arial, sans-serif;\r\n}\r\n\r\nbody {\r\n\r\n    text-align: center;\r\n}\r\n\r\n\r\n/* HEADER */\r\n\r\nheader {\r\n    padding: 2rem;\r\n}\r\n\r\n\r\n/* ALERT */\r\n\r\n.alert {\r\n    font-size: 0.9rem;\r\n    position: absolute;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    border-radius: 0.5rem;\r\n    top: 60px;\r\n    left: calc(50% - 270px);\r\n    z-index: 1;\r\n    width: 600px;\r\n    padding: 5px 20px;\r\n    border: 1px #a1261e solid;\r\n    box-sizing: border-box;\r\n    background-color: #f56a60;\r\n    color: white;\r\n    margin: 15px auto 0px auto;\r\n    opacity: 0.9;\r\n    transition: opacity 0.6s;\r\n}\r\n\r\n.close-alert {\r\n    margin-left: 15px;\r\n    color: white;\r\n    float: right;\r\n\r\n    line-height: 1.7rem;\r\n    cursor: pointer;\r\n    transition: 0.3s;\r\n    font-weight: 300;\r\n}\r\n\r\n.close-alert:hover {\r\n    color: black;\r\n}\r\n\r\n.hidden {\r\n    opacity: 0;\r\n}\r\n\r\n/* MAIN */\r\n\r\nmain {\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\r\n    margin: 0 auto;\r\n}\r\n\r\n/* FORMS */\r\n\r\n.form-container {\r\n    width: 80%;\r\n}\r\n\r\nform {\r\n    padding: 20px;\r\n}\r\n\r\nlegend {\r\n    padding: 0px 0px 40px 0px;\r\n}\r\n\r\n#get-coords-form > .form-control > * {\r\n    font-size: 0.9rem;\r\n    justify-content: space-evenly;\r\n}\r\n\r\n#get-coords-form > .form-control > label {\r\n    font-size: 1rem;\r\n    font-weight: bold;\r\n}\r\n\r\n#get-coords-form > .form-control > input[type=\"text\"] {\r\n    width: 40px;\r\n    text-align: center;\r\n    \r\n}\r\n\r\n.form-control {\r\n    padding: 10px 0px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.form-control > * {\r\n    padding: 0.7rem;\r\n    font-size: 1rem;\r\n    border-radius: 2rem;\r\n}\r\n\r\nlabel {\r\n    text-align: end;\r\n}\r\n\r\nlabel[for=\"username\"] {\r\n\r\n    text-align: center;\r\n    width: 100px;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n    border: 1px lightgray solid;\r\n    \r\n}\r\n\r\ninput[type=\"radio\"] {\r\n    cursor: pointer;\r\n}\r\n\r\n.radio-container {\r\n    display: grid;\r\n    grid-template-columns: 1rem auto;\r\n    grid-template-rows: auto auto;\r\n    gap: 0.5rem;\r\n\r\n}\r\n\r\n.radio-container > * {\r\n    margin: 0;\r\n    padding: 0;\r\n   \r\n}\r\n\r\n.radio-container > label {\r\n    width: 80px;\r\n    text-align: left;\r\n \r\n    \r\n}\r\n\r\ninput[type=\"submit\"] {\r\n    margin-left: 20px;\r\n    background-color: #7CB342;\r\n    width: 90px;\r\n    color: #fff;\r\n    font-size: 0.9rem;\r\n    font-weight: bold;\r\n    letter-spacing: 1px;\r\n    text-transform: uppercase;\r\n    border: none;\r\n    cursor: pointer;\r\n    transition: 0.2s ease;\r\n    -webkit-transition: 0.2s ease;\r\n}\r\n\r\ninput[type=\"submit\"]:hover, input[type=\"submit\"]:active {\r\n    background-color: #558B2F;\r\n}\r\n\r\n#submit-coords {\r\n    margin-top: 20px;\r\n}\r\n\r\n.error {\r\n    z-index: 1;\r\n    padding: 0;\r\n    font-size: 0.7rem;\r\n    color: white;\r\n    background-color: #f33f63;\r\n    border-radius: 0 0 5px 5px;\r\n    box-sizing: border-box;\r\n    \r\n}\r\n\r\n.error.green {\r\n    background-color: #7CB342;\r\n    cursor: pointer;\r\n}\r\n\r\n.error.green:hover {\r\n    background-color: #558B2F;\r\n    transition: 0.2s;\r\n}\r\n\r\n.error.green.inactive {\r\n    cursor: default;\r\n}\r\n\r\n.error.green.inactive:hover {\r\n    background-color: #7CB342;\r\n}\r\n\r\n.disabled {\r\n    font-style: italic;\r\n    opacity: 0.7;\r\n}\r\n\r\n.error.active {\r\n    font-size: 0.7rem;\r\n    margin-top: -20px;\r\n    width: 250px;\r\n    padding: 0.3rem 0.5rem 0.2rem 0.5rem;\r\n    \r\n}\r\n\r\n.invisible {\r\n    display: none !important;\r\n}\r\n\r\n/* ASIDE */\r\n\r\naside {\r\n    height: 6rem;\r\n    margin-bottom: 2rem;\r\n}\r\n\r\naside > p {\r\n    padding: 0.5rem 0rem;\r\n}\r\n\r\naside > button {\r\n\r\n    background-color: #7CB342;\r\n    color: #fff;\r\n    margin: 10px 0px 20px 0px;\r\n    padding: 0.5rem 0.8rem;\r\n    border-radius: 20px;\r\n    font-size: 0.9rem;\r\n    font-weight: bold;\r\n    letter-spacing: 1px;\r\n    text-transform: uppercase;\r\n    border: none;\r\n    cursor: pointer;\r\n    transition: 0.2s ease;\r\n    -webkit-transition: 0.2s ease;\r\n}\r\n\r\naside > button:hover, aside > button:active {\r\n    background-color: #558B2F;\r\n}\r\n\r\n/* BOARDS */\r\n\r\n.board-header {\r\n    font-weight: bold;\r\n    font-size: 1.2rem;\r\n}\r\n\r\n.board-container {\r\n    height: 500px;\r\n    width: 500px;\r\n    border: 1px black solid;\r\n    display: grid;\r\n    grid-template-columns: repeat(10, auto);\r\n    grid-template-rows: repeat(10, auto);\r\n    margin: 25px;\r\n\r\n}\r\n\r\n#board-Jasper {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n/* CELLS */\r\n\r\n.cell {\r\n    border: 1px black solid;\r\n    box-sizing: border-box;\r\n    height: 50px;\r\n    width: 50px;\r\n    display: grid;\r\n    align-items: center;\r\n    font-size: 0.9rem;\r\n    background-color: #0D47A1;\r\n}\r\n\r\n#board-jasper .cell.open:hover, #board-jasper .cell.ship.open:hover {\r\n    background-color: #82B1FF;\r\n    cursor: pointer;\r\n}\r\n\r\n#board-human .ship {\r\n    background-color: #ffda33;\r\n}\r\n\r\n\r\n\r\n.miss {\r\n    background-color: #80c045;\r\n}\r\n\r\n\r\n\r\n.hit {\r\n    background-color: #F44336 !important;\r\n}\r\n\r\n\r\n\r\n.sink {\r\n    background-color: #F44336 !important;\r\n}\r\n\r\n.inactive-cell {\r\n    cursor: default;\r\n}\r\n\r\n\r\n/* FOOTER */\r\n\r\nfooter {\r\n    position: fixed;\r\n \r\n    bottom: 0;\r\n    font-size: 10pt;\r\n    width: 100%;\r\n\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* GLOBALS */\r\n\r\n:root {\r\n    --yellow: #FFDE00;\r\n    --yellow-dark: #B59D00;\r\n    --brown: #231F20;\r\n    --red: #C12D2D;\r\n    --blue: #2D9EC1;\r\n    --main-bg: rgb(108,108,108);\r\n    --main-bg-gradient: radial-gradient(circle, rgba(108,108,108,1) 0%, rgba(58,58,58,1) 80%);\r\n}\r\n\r\n* {\r\n    margin: 0; padding: 0;\r\n    font-family: 'Roboto', Helvetica, Arial, sans-serif;\r\n}\r\n\r\n*,\r\n*:before,\r\n*:after {\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n    background-color: var(--main-bg);\r\n    background: var(--main-bg-gradient);\r\n    text-align: center;\r\n    color: var(--yellow);\r\n    min-height: 100vh;\r\n}\r\n\r\n#container {\r\n    position: relative;\r\n    min-height: 100vh;\r\n}\r\n\r\n/* HEADER */\r\n\r\nheader {\r\n    padding-top: 4rem;\r\n    padding-bottom: 4rem;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n#logo-battleships {\r\n    height: 50px;\r\n    margin-bottom: 1rem;\r\n}\r\n\r\n#logo-jasper {\r\n    height: 100px;\r\n}\r\n\r\n\r\n/* ALERT */\r\n\r\n.alert {\r\n    font-size: 0.9rem;\r\n    position: absolute;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    border-radius: 0.5rem;\r\n    top: 60px;\r\n    left: calc(50% - 270px);\r\n    z-index: 1;\r\n    width: 600px;\r\n    padding: 5px 20px;\r\n    border: 1px #a1261e solid;\r\n    box-sizing: border-box;\r\n    background-color: #f56a60;\r\n    color: white;\r\n    margin: 15px auto 0px auto;\r\n    opacity: 0.9;\r\n    transition: opacity 0.6s;\r\n}\r\n\r\n.close-alert {\r\n    margin-left: 15px;\r\n    color: white;\r\n    float: right;\r\n\r\n    line-height: 1.7rem;\r\n    cursor: pointer;\r\n    transition: 0.3s;\r\n    font-weight: 300;\r\n}\r\n\r\n.close-alert:hover {\r\n    color: black;\r\n}\r\n\r\n.hidden {\r\n    opacity: 0;\r\n}\r\n\r\n/* MAIN */\r\n\r\nmain {\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\r\n    margin: 0 auto;\r\n}\r\n\r\n/* FORMS */\r\n\r\n.form-container {\r\n    width: 80%;\r\n}\r\n\r\nlegend {\r\n    font-size: 1.3rem;\r\n    margin-bottom: 2rem;\r\n}\r\n\r\n\r\n#get-coords-form > .form-control > * {\r\n    font-size: 0.9rem;\r\n   \r\n}\r\n\r\n#get-coords-form > .form-control > label {\r\n    font-size: 1rem;\r\n    font-weight: bold;\r\n}\r\n\r\n#get-coords-form > .form-control > input[type=\"text\"] {\r\n    width: 50px;\r\n    text-align: center;\r\n    \r\n}\r\n\r\n.form-control {\r\n    padding-bottom: 1rem;\r\n    \r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.form-control > * {\r\n    padding: 0.7rem;\r\n    font-size: 1rem;\r\n    border-radius: 2rem;\r\n}\r\n\r\nlabel {\r\n    text-align: end;\r\n}\r\n\r\nlabel[for=\"username\"] {\r\n    text-align: center;\r\n    width: 100px;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n    border: 1px var(--yellow) solid;\r\n    background-color: #D9D9D935;\r\n    color: var(--yellow);\r\n}\r\n\r\ninput[type=\"text\"]::placeholder {\r\n    color: var(--yellow);\r\n    opacity: 35%;\r\n}\r\n\r\ninput[type=\"text\"]:focus {\r\n    outline: 1px var(--yellow) solid;\r\n}\r\n\r\ninput[type=\"text\"]:-webkit-autofill,\r\ninput[type=\"text\"]:-webkit-autofill:hover, \r\ninput[type=\"text\"]:-webkit-autofill:focus {\r\n  -webkit-text-fill-color: var(--brown);\r\n}\r\n\r\ninput[type=\"radio\"] {\r\n    /* Add if not using autoprefixer */\r\n    -webkit-appearance: none;\r\n    appearance: none;\r\n    /* For iOS < 15 to remove gradient background */\r\n    background-color: none;\r\n    /* Not removed via appearance */\r\n    margin: 0;\r\n    font: inherit;\r\n    color: currentColor;\r\n    width: 1.15em;\r\n    height: 1.15em;\r\n    border: 0.15em solid currentColor;\r\n    border-radius: 50%;\r\n    display: grid;\r\n    place-content: center;\r\n    cursor: pointer;\r\n}\r\n\r\ninput[type=\"radio\"]::before {\r\n    content: \"\";\r\n    width: 0.65em;\r\n    height: 0.65em;\r\n    border-radius: 50%;\r\n    transform: scale(0);\r\n    transition: 120ms transform ease-in-out;\r\n    box-shadow: inset 1em 1em var(--yellow);\r\n  }\r\n\r\n  input[type=\"radio\"]:checked::before {\r\n    transform: scale(1);\r\n  }\r\n\r\n\r\n.radio-container {\r\n    display: grid;\r\n    grid-template-columns: 1rem auto;\r\n    grid-template-rows: auto auto;\r\n    gap: 0.5rem;\r\n\r\n}\r\n\r\n.radio-container > * {\r\n    margin: 0;\r\n    padding: 0;\r\n   \r\n}\r\n\r\n.radio-container > label {\r\n    width: 80px;\r\n    text-align: left;\r\n}\r\n\r\ninput[type=\"submit\"] {\r\n    margin-left: 20px;\r\n    background-color: var(--yellow);\r\n    width: 90px;\r\n    color: var(--brown);\r\n    font-size: 0.9rem;\r\n    font-weight: bold;\r\n    letter-spacing: 1px;\r\n    text-transform: uppercase;\r\n    border: none;\r\n    cursor: pointer;\r\n    transition: 0.2s ease;\r\n    -webkit-transition: 0.2s ease;\r\n}\r\n\r\ninput[type=\"submit\"]:hover, input[type=\"submit\"]:active {\r\n    background-color: var(--yellow-dark);\r\n}\r\n\r\n#submit-coords {\r\n    margin-top: 20px;\r\n}\r\n\r\n.error {\r\n    z-index: 1;\r\n    padding: 0;\r\n    font-size: 0.7rem;\r\n    color: white;\r\n    background-color: #f33f63;\r\n    border-radius: 0 0 5px 5px;\r\n    box-sizing: border-box;\r\n    \r\n}\r\n\r\n.error.green {\r\n    background-color: var(--yellow);\r\n    color: var(--brown);\r\n    cursor: pointer;\r\n}\r\n\r\n.error.green:hover {\r\n    background-color: var(--yellow-dark);\r\n    transition: 0.2s;\r\n}\r\n\r\n.error.green.inactive {\r\n    cursor: default;\r\n}\r\n\r\n.error.green.inactive:hover {\r\n    background-color: var(--yellow);\r\n}\r\n\r\n.disabled {\r\n    font-style: italic;\r\n    opacity: 0.7;\r\n}\r\n\r\n.error.active {\r\n    font-size: 0.7rem;\r\n    margin-top: -20px;\r\n    width: 250px;\r\n    padding: 0.3rem 0.5rem 0.2rem 0.5rem;\r\n    \r\n}\r\n\r\n.invisible {\r\n    display: none !important;\r\n}\r\n\r\n/* ASIDE */\r\n\r\naside {\r\n    margin-top: -1rem;\r\n    margin-bottom: 1rem;\r\n}\r\n\r\naside > p {\r\n    padding: 0.5rem 0rem;\r\n    font-size: 1.3rem;\r\n}\r\n\r\nbutton {\r\n    background-color: var(--yellow);\r\n    color: var(--brown);\r\n    margin: 10px 0px 20px 0px;\r\n    padding: 0.5rem 0.8rem;\r\n    border-radius: 20px;\r\n    font-size: 0.9rem;\r\n    font-weight: bold;\r\n    letter-spacing: 1px;\r\n    text-transform: uppercase;\r\n    border: none;\r\n    cursor: pointer;\r\n    transition: 0.2s ease;\r\n    -webkit-transition: 0.2s ease;\r\n}\r\n\r\nbutton:hover, button:active {\r\n    background-color: var(--yellow-dark);\r\n}\r\n\r\n/* BOARDS */\r\n\r\n.board-header {\r\n    font-weight: bold;\r\n    font-size: 1.2rem;\r\n}\r\n\r\n.board-container {\r\n    height: 500px;\r\n    border: 1px var(--yellow) solid;\r\n    \r\n    width: 500px;\r\n    display: grid;\r\n    grid-template-columns: repeat(10, auto);\r\n    grid-template-rows: repeat(10, auto);\r\n    margin: 25px;\r\n    margin-bottom: 3rem;\r\n}\r\n\r\n#board-Jasper {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n/* CELLS */\r\n\r\n.cell {\r\n    border: 1px var(--yellow) solid;\r\n    box-sizing: border-box;\r\n    height: 50px;\r\n    width: 50px;\r\n    display: grid;\r\n    align-items: center;\r\n    font-size: 0.9rem;\r\n   \r\n}\r\n\r\n#board-jasper .cell.open:hover, #board-jasper .cell.ship.open:hover {\r\n    background-color: #FFDE0045;\r\n    cursor: pointer;\r\n}\r\n\r\n#board-human .ship {\r\n    background-color: var(--yellow);\r\n}\r\n\r\n.miss {\r\n    background-color: var(--blue);\r\n}\r\n\r\n.hit {\r\n    background-color: var(--red) !important;\r\n}\r\n\r\n.sink {\r\n    background-color: var(--red) !important;\r\n}\r\n\r\n.inactive-cell {\r\n    cursor: default;\r\n}\r\n\r\n\r\n/* FOOTER */\r\n\r\nfooter {\r\n    position: absolute;\r\n    bottom: 0;\r\n    padding-top: 2rem;\r\n    padding-bottom: 0.3rem;\r\n    font-size: 10pt;\r\n    width: 100%;\r\n}\r\n\r\nfooter > p > a {\r\n    color: var(--yellow);\r\n}\r\n\r\nfooter > p > a:hover {\r\n    color: var(--yellow-dark);\r\n}\r\n\r\nfooter > p > a:visited {\r\n    color: var(--yellow);\r\n}", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"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","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');\r\n\r\n/* GLOBALS */\r\n\r\n:root {\r\n    --yellow: #FFDE00;\r\n    --yellow-dark: #B59D00;\r\n    --brown: #231F20;\r\n    --red: #C12D2D;\r\n    --blue: #2D9EC1;\r\n    --main-bg: rgb(108,108,108);\r\n    --main-bg-gradient: radial-gradient(circle, rgba(108,108,108,1) 0%, rgba(58,58,58,1) 80%);\r\n}\r\n\r\n* {\r\n    margin: 0; padding: 0;\r\n    font-family: 'Roboto', Helvetica, Arial, sans-serif;\r\n}\r\n\r\n*,\r\n*:before,\r\n*:after {\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n    background-color: var(--main-bg);\r\n    background: var(--main-bg-gradient);\r\n    text-align: center;\r\n    color: var(--yellow);\r\n    min-height: 100vh;\r\n}\r\n\r\n#container {\r\n    position: relative;\r\n    min-height: 100vh;\r\n}\r\n\r\n/* HEADER */\r\n\r\nheader {\r\n    padding-top: 4rem;\r\n    padding-bottom: 4rem;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n#logo-battleships {\r\n    height: 50px;\r\n    margin-bottom: 1rem;\r\n}\r\n\r\n#logo-jasper {\r\n    height: 100px;\r\n}\r\n\r\n\r\n/* ALERT */\r\n\r\n.alert {\r\n    font-size: 0.9rem;\r\n    position: absolute;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    border-radius: 0.5rem;\r\n    top: 60px;\r\n    left: calc(50% - 270px);\r\n    z-index: 1;\r\n    width: 600px;\r\n    padding: 5px 20px;\r\n    border: 1px #a1261e solid;\r\n    box-sizing: border-box;\r\n    background-color: #f56a60;\r\n    color: white;\r\n    margin: 15px auto 0px auto;\r\n    opacity: 0.9;\r\n    transition: opacity 0.6s;\r\n}\r\n\r\n.close-alert {\r\n    margin-left: 15px;\r\n    color: white;\r\n    float: right;\r\n\r\n    line-height: 1.7rem;\r\n    cursor: pointer;\r\n    transition: 0.3s;\r\n    font-weight: 300;\r\n}\r\n\r\n.close-alert:hover {\r\n    color: black;\r\n}\r\n\r\n.hidden {\r\n    opacity: 0;\r\n}\r\n\r\n/* MAIN */\r\n\r\nmain {\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\r\n    margin: 0 auto;\r\n}\r\n\r\n/* FORMS */\r\n\r\n.form-container {\r\n    width: 80%;\r\n}\r\n\r\nlegend {\r\n    font-size: 1.3rem;\r\n    margin-bottom: 2rem;\r\n}\r\n\r\n\r\n#get-coords-form > .form-control > * {\r\n    font-size: 0.9rem;\r\n   \r\n}\r\n\r\n#get-coords-form > .form-control > label {\r\n    font-size: 1rem;\r\n    font-weight: bold;\r\n}\r\n\r\n#get-coords-form > .form-control > input[type=\"text\"] {\r\n    width: 50px;\r\n    text-align: center;\r\n    \r\n}\r\n\r\n.form-control {\r\n    padding-bottom: 1rem;\r\n    \r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.form-control > * {\r\n    padding: 0.7rem;\r\n    font-size: 1rem;\r\n    border-radius: 2rem;\r\n}\r\n\r\nlabel {\r\n    text-align: end;\r\n}\r\n\r\nlabel[for=\"username\"] {\r\n    text-align: center;\r\n    width: 100px;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n    border: 1px var(--yellow) solid;\r\n    background-color: #D9D9D935;\r\n    color: var(--yellow);\r\n}\r\n\r\ninput[type=\"text\"]::placeholder {\r\n    color: var(--yellow);\r\n    opacity: 35%;\r\n}\r\n\r\ninput[type=\"text\"]:focus {\r\n    outline: 1px var(--yellow) solid;\r\n}\r\n\r\ninput[type=\"text\"]:-webkit-autofill,\r\ninput[type=\"text\"]:-webkit-autofill:hover, \r\ninput[type=\"text\"]:-webkit-autofill:focus {\r\n  -webkit-text-fill-color: var(--brown);\r\n}\r\n\r\ninput[type=\"radio\"] {\r\n    /* Add if not using autoprefixer */\r\n    -webkit-appearance: none;\r\n    appearance: none;\r\n    /* For iOS < 15 to remove gradient background */\r\n    background-color: none;\r\n    /* Not removed via appearance */\r\n    margin: 0;\r\n    font: inherit;\r\n    color: currentColor;\r\n    width: 1.15em;\r\n    height: 1.15em;\r\n    border: 0.15em solid currentColor;\r\n    border-radius: 50%;\r\n    display: grid;\r\n    place-content: center;\r\n    cursor: pointer;\r\n}\r\n\r\ninput[type=\"radio\"]::before {\r\n    content: \"\";\r\n    width: 0.65em;\r\n    height: 0.65em;\r\n    border-radius: 50%;\r\n    transform: scale(0);\r\n    transition: 120ms transform ease-in-out;\r\n    box-shadow: inset 1em 1em var(--yellow);\r\n  }\r\n\r\n  input[type=\"radio\"]:checked::before {\r\n    transform: scale(1);\r\n  }\r\n\r\n\r\n.radio-container {\r\n    display: grid;\r\n    grid-template-columns: 1rem auto;\r\n    grid-template-rows: auto auto;\r\n    gap: 0.5rem;\r\n\r\n}\r\n\r\n.radio-container > * {\r\n    margin: 0;\r\n    padding: 0;\r\n   \r\n}\r\n\r\n.radio-container > label {\r\n    width: 80px;\r\n    text-align: left;\r\n}\r\n\r\ninput[type=\"submit\"] {\r\n    margin-left: 20px;\r\n    background-color: var(--yellow);\r\n    width: 90px;\r\n    color: var(--brown);\r\n    font-size: 0.9rem;\r\n    font-weight: bold;\r\n    letter-spacing: 1px;\r\n    text-transform: uppercase;\r\n    border: none;\r\n    cursor: pointer;\r\n    transition: 0.2s ease;\r\n    -webkit-transition: 0.2s ease;\r\n}\r\n\r\ninput[type=\"submit\"]:hover, input[type=\"submit\"]:active {\r\n    background-color: var(--yellow-dark);\r\n}\r\n\r\n#submit-coords {\r\n    margin-top: 20px;\r\n}\r\n\r\n.error {\r\n    z-index: 1;\r\n    padding: 0;\r\n    font-size: 0.7rem;\r\n    color: white;\r\n    background-color: #f33f63;\r\n    border-radius: 0 0 5px 5px;\r\n    box-sizing: border-box;\r\n    \r\n}\r\n\r\n.error.green {\r\n    background-color: var(--yellow);\r\n    color: var(--brown);\r\n    cursor: pointer;\r\n}\r\n\r\n.error.green:hover {\r\n    background-color: var(--yellow-dark);\r\n    transition: 0.2s;\r\n}\r\n\r\n.error.green.inactive {\r\n    cursor: default;\r\n}\r\n\r\n.error.green.inactive:hover {\r\n    background-color: var(--yellow);\r\n}\r\n\r\n.disabled {\r\n    font-style: italic;\r\n    opacity: 0.7;\r\n}\r\n\r\n.error.active {\r\n    font-size: 0.7rem;\r\n    margin-top: -20px;\r\n    width: 250px;\r\n    padding: 0.3rem 0.5rem 0.2rem 0.5rem;\r\n    \r\n}\r\n\r\n.invisible {\r\n    display: none !important;\r\n}\r\n\r\n/* ASIDE */\r\n\r\naside {\r\n    margin-top: -1rem;\r\n    margin-bottom: 1rem;\r\n}\r\n\r\naside > p {\r\n    padding: 0.5rem 0rem;\r\n    font-size: 1.3rem;\r\n}\r\n\r\nbutton {\r\n    background-color: var(--yellow);\r\n    color: var(--brown);\r\n    margin: 10px 0px 20px 0px;\r\n    padding: 0.5rem 0.8rem;\r\n    border-radius: 20px;\r\n    font-size: 0.9rem;\r\n    font-weight: bold;\r\n    letter-spacing: 1px;\r\n    text-transform: uppercase;\r\n    border: none;\r\n    cursor: pointer;\r\n    transition: 0.2s ease;\r\n    -webkit-transition: 0.2s ease;\r\n}\r\n\r\nbutton:hover, button:active {\r\n    background-color: var(--yellow-dark);\r\n}\r\n\r\n/* BOARDS */\r\n\r\n.board-header {\r\n    font-weight: bold;\r\n    font-size: 1.2rem;\r\n}\r\n\r\n.board-container {\r\n    height: 500px;\r\n    border: 1px var(--yellow) solid;\r\n    \r\n    width: 500px;\r\n    display: grid;\r\n    grid-template-columns: repeat(10, auto);\r\n    grid-template-rows: repeat(10, auto);\r\n    margin: 25px;\r\n    margin-bottom: 3rem;\r\n}\r\n\r\n#board-Jasper {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n/* CELLS */\r\n\r\n.cell {\r\n    border: 1px var(--yellow) solid;\r\n    box-sizing: border-box;\r\n    height: 50px;\r\n    width: 50px;\r\n    display: grid;\r\n    align-items: center;\r\n    font-size: 0.9rem;\r\n   \r\n}\r\n\r\n#board-jasper .cell.open:hover, #board-jasper .cell.ship.open:hover {\r\n    background-color: #FFDE0045;\r\n    cursor: pointer;\r\n}\r\n\r\n#board-human .ship {\r\n    background-color: var(--yellow);\r\n}\r\n\r\n.miss {\r\n    background-color: var(--blue);\r\n}\r\n\r\n.hit {\r\n    background-color: var(--red) !important;\r\n}\r\n\r\n.sink {\r\n    background-color: var(--red) !important;\r\n}\r\n\r\n.inactive-cell {\r\n    cursor: default;\r\n}\r\n\r\n\r\n/* FOOTER */\r\n\r\nfooter {\r\n    position: absolute;\r\n    bottom: 0;\r\n    padding-top: 2rem;\r\n    padding-bottom: 0.3rem;\r\n    font-size: 10pt;\r\n    width: 100%;\r\n}\r\n\r\nfooter > p > a {\r\n    color: var(--yellow);\r\n}\r\n\r\nfooter > p > a:hover {\r\n    color: var(--yellow-dark);\r\n}\r\n\r\nfooter > p > a:visited {\r\n    color: var(--yellow);\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -542,6 +542,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Game__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Game */ 403);
 /* harmony import */ var _gameLoop__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gameLoop */ 995);
+/* harmony import */ var _assets_paddlin_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/paddlin.png */ 282);
+/* harmony import */ var _assets_jasper_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/jasper.png */ 386);
+
+
 
 
 
@@ -840,13 +844,13 @@ function Display() {
 
     function startGame(name, aiCoords) {
         game = new _Game__WEBPACK_IMPORTED_MODULE_0__.Game(name);
-
+        
         // Append the comment container
         displayComment();
         let message = game.humanBoard.owner.name + "'s turn"
         updateComment(message);
         let append = 'Click a square to attack';
-        appendComment(append);
+        updateComment(append);
 
         // Print the boards
         printBoard(game.humanBoard);
@@ -881,7 +885,6 @@ function Display() {
             cell.addEventListener('click', handleEvent)
             })
         // Once gameOver is true, end and return winner
-        
         return game.winner;
     }
 
@@ -901,34 +904,58 @@ function Display() {
         game.playRound(currentInput);
     }
 
-    function endGame() {
+    function endGame(winner, humanPlayer) {
+        console.log('The winner is' + winner);
+        console.log(winner);
+
         const aside = document.querySelector('aside');
+        aside.innerHTML = '';
+        main.innerHTML = '';
+        let msg;
+        let message;
+        let img = document.createElement('img');
+
+        if (winner == 'Jasper') {
+            msg = 'Jasper wins!';
+            message = 'Jasper says, "That\'s a paddlin\'."';
+            img.src = _assets_paddlin_png__WEBPACK_IMPORTED_MODULE_2__;
+        
+        } else {
+            msg = winner + ' wins!';
+            message = 'Jasper says, "Oh, well. Easy come, easy go.'
+            img.src = _assets_jasper_png__WEBPACK_IMPORTED_MODULE_3__;
+        }
+
+        let p1 = document.createElement('p');
+        p1.innerText = msg;
+
+        let p2 = document.createElement('p');
+        p2.innerText = message;
+
+
+
         let button = document.createElement('button');
         button.innerText = 'Play again';
         button.addEventListener('click', function() {
-            playAgain();
-        })
-        aside.appendChild(button);
-
-        let query = '.cell-Jasper';
-        const cells = document.querySelectorAll(query);    
-        cells.forEach((cell) => {
-            if (cell.classList.contains('open')) {
-                cell.classList.remove('open');
-            }
-            cell.classList.add('inactive-cell');
-            cell.removeEventListener('click', handleEvent);
+            playAgain(humanPlayer.name);
         });
+
+        aside.appendChild(p1);
+        aside.appendChild(img);
+        aside.appendChild(p2);
+        aside.appendChild(button);
 
     }
 
-    function playAgain() {
-        let game = new _gameLoop__WEBPACK_IMPORTED_MODULE_1__.gameLoop();
+    function playAgain(name) {
+        let gameloop = new _gameLoop__WEBPACK_IMPORTED_MODULE_1__.gameLoop();
         const container = document.getElementById('container');
         const aside = document.querySelector('aside');
         container.removeChild(aside);
-        game.username = username;
-        game.displayCoordsForm();
+        setUsername(name);
+        gameloop.setUserName(name);
+        gameloop.displayCoordsForm();
+
     }
 
     return {
@@ -1115,13 +1142,13 @@ function Game(name) {
     }
 
     function getAdjacents(prevCoord) {
+
+        console.log('Getting adjacents for...');
+        console.log(prevCoord);
+
         let row = prevCoord[0];
         let col = prevCoord[1];
         let adjacents = [];
-        let topLeft = [0,0];
-        let topRight = [0,9];
-        let bottomLeft = [9,0];
-        let bottomRight = [9,9];
         let topRow = {
             0: [0,1],
             1: [0,2],
@@ -1163,13 +1190,13 @@ function Game(name) {
             7: [8,9]
         };
         // Get the adjacent squares
-        if (prevCoord == topLeft) {
+        if (row == 0 && col == 0) {
             adjacents = [[0,1], [1,0]];
-        } else if (prevCoord == topRight) {
+        } else if (row == 0 && col == 9) {
             adjacents = [[0,8], [1,9]];
-        } else if (prevCoord == bottomLeft) {
+        } else if (row == 9 && col == 0) {
             adjacents = [[8,0], [9,1]];
-        } else if (prevCoord == bottomRight) {
+        } else if (row == 9 && col == 9) {
             adjacents = [[8,9], [9,8]]
         } else if (_Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer.isSubset(prevCoord, topRow)) {
             adjacents = [[row, col - 1], [row, col + 1], [row + 1, col]]
@@ -1406,7 +1433,7 @@ function Game(name) {
                         gameOver = true;
                         return gameOver;
                     }
-                }, 3000)
+                }, 500)
                 
             }
         }, 500)
@@ -1425,13 +1452,19 @@ function Game(name) {
         let humanTurnRes = humanTurn(input);
 
         let winner = checkWinner();
-        if (winner) {
+        if (winner == humanPlayer) {
             gameOver = true;
-            let msg = humanPlayer.name + ' wins!';
-            display.updateComment(msg);
-            let message = 'Jasper says, "Oh, well. Easy come, easy go."'
-            display.appendComment(message);
-            display.endGame();
+
+            let name = winner.name;
+            display.endGame(name, humanPlayer);
+
+            return { winner, gameOver }
+       
+        } else if (winner == _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer) {
+            gameOver = true;
+            let name = 'Jasper';
+ 
+            display.endGame(name, humanPlayer);
             return { winner, gameOver }
         }
 
@@ -1439,18 +1472,25 @@ function Game(name) {
 
         winner = checkWinner();
 
-        if (winner) {
+        if (winner == humanPlayer) {
             gameOver = true;
-            let msg = 'Jasper wins!';
-            display.updateComment(msg);
-            let message = 'Jasper says, "That\'s a paddlin\'."'
-            display.appendComment(message);
-            display.endGame();
+
+            let name = winner.name;
+            display.endGame(name, humanPlayer);
+
+            return { winner, gameOver }
+
+        } else if (winner == _Player__WEBPACK_IMPORTED_MODULE_0__.AiPlayer) {
+            gameOver = true;
+            let name = 'Jasper';
+ 
+            display.endGame(name, humanPlayer);
+
             return { winner, gameOver }
         }
+
         return {humanTurnRes, aiTurnRes}
     }
-
 
     // Check for a winner
     function checkWinner() {
@@ -1695,12 +1735,14 @@ function Player(name) {
 
             return {coords, usedCoords}
 
-        } 
-        // If the coords do match, try again
-    
-        coords = randomCoords();
+        } else {
+            // If the coords do match, try again
+        
+            coords = randomCoords();
 
-        return randomTurn(usedCoords, coords);
+            return randomTurn(usedCoords, coords);
+        }
+        
         
     }
 
@@ -1818,6 +1860,11 @@ function gameLoop() {
         setNameFormListener();
     };
 
+    function setUserName(name) {
+        username = name;
+        return username;
+    }
+
     // Private helper function for init() that sets event listener on the get name form
     function setNameFormListener() {
         // get submit name btn
@@ -1843,6 +1890,7 @@ function gameLoop() {
 
     function displayCoordsForm() {
         // clear main
+        
         const main = document.getElementById('main');
         main.innerHTML = '';
         // display the coords form
@@ -1861,6 +1909,8 @@ function gameLoop() {
         coordsForm.validateSubmarine();
         coordsForm.validatePatrolBoat();
 
+        
+
         // get coords submit
         const submitCoords = document.getElementById('submit-coords');
         submitCoords.addEventListener('click', function(e) {
@@ -1876,6 +1926,7 @@ function gameLoop() {
     return {
         init: init,
         displayCoordsForm: displayCoordsForm,
+        setUserName: setUserName,
     }
 
 }
@@ -3350,6 +3401,7 @@ function getNameForm() {
         // make form
         const form = document.createElement('form');
         form.setAttribute('id', 'get-username-form');
+        form.setAttribute('autocomplete', 'off');
         container.appendChild(form);
 
         // make legend
@@ -3361,12 +3413,6 @@ function getNameForm() {
         const formControl = document.createElement('div');
         formControl.classList.add('form-control');
         form.appendChild(formControl);
-
-        // make label
-        const label = document.createElement('label');
-        label.setAttribute('for', 'username');
-        label.innerText = 'Your name:';
-        formControl.appendChild(label);
 
         // make input type text
         const input = document.createElement('input');
@@ -3402,12 +3448,63 @@ function getNameForm() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ 654);
 /* harmony import */ var _gameLoop__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gameLoop */ 995);
+/* harmony import */ var _assets_battleships_colour_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/battleships_colour.svg */ 42);
+/* harmony import */ var _assets_jasper_colour_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/jasper_colour.svg */ 19);
 // eslint-disable-next-line no-unused-vars
 
 
 
+
+
+const logo = document.getElementById('logo-battleships');
+logo.src = _assets_battleships_colour_svg__WEBPACK_IMPORTED_MODULE_2__;
+
+const logo2 = document.getElementById('logo-jasper');
+logo2.src = _assets_jasper_colour_svg__WEBPACK_IMPORTED_MODULE_3__;
+
+
 let game = new _gameLoop__WEBPACK_IMPORTED_MODULE_1__.gameLoop();
 game.init();
+
+/***/ }),
+
+/***/ 42:
+/*!*******************************************!*\
+  !*** ./src/assets/battleships_colour.svg ***!
+  \*******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "battleships_colour.svg";
+
+/***/ }),
+
+/***/ 386:
+/*!*******************************!*\
+  !*** ./src/assets/jasper.png ***!
+  \*******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "jasper.png";
+
+/***/ }),
+
+/***/ 19:
+/*!**************************************!*\
+  !*** ./src/assets/jasper_colour.svg ***!
+  \**************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "jasper_colour.svg";
+
+/***/ }),
+
+/***/ 282:
+/*!********************************!*\
+  !*** ./src/assets/paddlin.png ***!
+  \********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "paddlin.png";
 
 /***/ })
 
@@ -3417,4 +3514,4 @@ game.init();
 /******/ var __webpack_exports__ = (__webpack_exec__(138));
 /******/ }
 ]);
-//# sourceMappingURL=bundle-6828af9a01f55161aa62.js.map
+//# sourceMappingURL=bundle-5de57953360c420fdd18.js.map

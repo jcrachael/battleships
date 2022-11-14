@@ -102,6 +102,11 @@
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		__webpack_require__.p = "/battleships/";
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
@@ -165,4 +170,4 @@
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=runtime-096c7813ac49fe3c2e0c.js.map
+//# sourceMappingURL=runtime-6209093d52d0dcbe52f6.js.map
